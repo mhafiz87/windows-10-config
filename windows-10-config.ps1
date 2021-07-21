@@ -170,3 +170,18 @@ reg import "registryshortcutsw1064bit\disable videos folder win10 64.reg"
 
 # Disable internet explorer prompt 
 set-itemproperty -path "hklm:\software\microsoft\internet explorer\main" -name "disablefirstruncustomize" -value 2
+
+$password_flag = read-host "do you want to enable automatic login? [y]es or [n}o"
+if ($password_flag -eq "y") {
+	write-output "automatic login enable"
+	write-output "please input password:"
+	$password = read-host -assecurestring
+	$password = [system.runtime.interopservices.marshal]::ptrtostringauto([system.runtime.interopservices.marshal]::securestringtobstr($password))
+	new-itemproperty -path "hklm:\software\microsoft\windows nt\currentversion\winlogon" -name "defaultpassword" -type string -value $password
+	set-itemproperty -path "hklm:\software\microsoft\windows nt\currentversion\winlogon" -name "autoadminlogon" -type string -value 1
+	new-itemproperty -path "hklm:\software\microsoft\windows nt\currentversion\winlogon" -name "defaultusername" -type string -value $env:username
+}
+else {
+	write-output "automatic login remain disable"
+}
+
