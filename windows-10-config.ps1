@@ -474,3 +474,11 @@ Set-PSReadLineKeyHandler -Key "Alt+'" `
 }
 '@
 
+# Download Windows 10 App Package
+# Download WinGet
+Write-Output "Downloading WinGet"
+download_windows_msixbundle_from_github -url microsoft/winget-cli -outputFilename Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
+# Download Windows Terminal
+Write-Output "Downloading Windows Terminal"
+download_windows_msixbundle_from_github -url microsoft/terminal -outputFilename Microsoft.WindowsTerminal_version_8wekyb3d8bbwe.msixbundle
+
