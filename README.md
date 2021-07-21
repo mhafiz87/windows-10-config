@@ -24,3 +24,8 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force -Ski
 ```powershell
 Invoke-WebRequest -Uri "https://github.com/Sycnex/Windows10Debloater/archive/master.zip" -OutFile "$env:USERPROFILE\Desktop\Windows10Debloater.zip"
 ```
+
+## TODO LIST
+
+- [ ] Script to extract vscode extensions.
+  - [ ] Test-Path exist or not.
