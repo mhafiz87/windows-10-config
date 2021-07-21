@@ -272,3 +272,9 @@ set-itemproperty -path "hkcu:\software\microsoft\windows\shell\bags\1\desktop" -
 write-output "use small desktop icon"
 set-ItemProperty -path HKCU:\Software\Microsoft\Windows\Shell\Bags\1\Desktop -name IconSize -value 32
 Stop-Process -name explorer  # explorer.exe restarts automatically after stopping
+
+Install-Module -Name 7Zip4Powershell -Force -SkipPublisherCheck
+Install-Module posh-git -Scope CurrentUser -Force -SkipPublisherCheck
+Install-Module oh-my-posh -Scope CurrentUser -Force -SkipPublisherCheck
+Install-Module -Name PSReadLine -Scope CurrentUser -Force -SkipPublisherCheck
+
