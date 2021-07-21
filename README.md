@@ -9,14 +9,14 @@ curl -L -o %userprofile%\Desktop\windows-10-config.zip https://github.com/mhafiz
 - Enable powershell to run script. Run powershell:
 
 ```powershell
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force -SkipPublisherCheck
 ```
 
 - Go to the folder where the script is located.
 - Run powershell:
 
 ```powershell
-ECHO Y | .\windows-10-config.ps1
+.\windows-10-config.ps1
 ```
 
 - Download and run Windows 10 debloater. Run powershell:

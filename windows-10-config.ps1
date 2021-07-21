@@ -273,6 +273,7 @@ write-output "use small desktop icon"
 set-ItemProperty -path HKCU:\Software\Microsoft\Windows\Shell\Bags\1\Desktop -name IconSize -value 32
 Stop-Process -name explorer  # explorer.exe restarts automatically after stopping
 
+Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -SkipPublisherCheck
 Install-Module -Name 7Zip4Powershell -Force -SkipPublisherCheck
 Install-Module posh-git -Scope CurrentUser -Force -SkipPublisherCheck
 Install-Module oh-my-posh -Scope CurrentUser -Force -SkipPublisherCheck
