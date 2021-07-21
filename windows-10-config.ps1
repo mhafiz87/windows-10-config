@@ -167,3 +167,6 @@ reg import "registryshortcutsw1064bit\disable downloads folder win10 64.reg"
 reg import "registryshortcutsw1064bit\disable music folder win10 64.reg"
 reg import "registryshortcutsw1064bit\disable pictures folder win10 64.reg"
 reg import "registryshortcutsw1064bit\disable videos folder win10 64.reg"
+
+# Disable internet explorer prompt 
+set-itemproperty -path "hklm:\software\microsoft\internet explorer\main" -name "disablefirstruncustomize" -value 2
