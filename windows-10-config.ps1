@@ -185,3 +185,90 @@ else {
 	write-output "automatic login remain disable"
 }
 
+# change explorer home screen back to "this pc"
+write-output "change explorer home screen to this pc"
+set-itemproperty -path "hkcu:\software\microsoft\windows\currentversion\explorer\advanced" -name "launchto" -type dword -value 1
+# change it back to "quick access" (windows 10 default)
+#set-itemproperty -path hkcu:\software\microsoft\windows\currentversion\explorer\advanced -name launchto -type dword -value 2
+
+# change explorer to show file extension
+write-output "show file extensions in file explorer"
+set-itemproperty -path "hkcu:\software\microsoft\windows\currentversion\explorer\advanced" -name "hidefileext" -type dword -value 0
+
+# change explorer to show hidden file
+write-output "show hidden files in file explorer"
+set-itemproperty -path "hkcu:\software\microsoft\windows\currentversion\explorer\advanced" -name "hidden" -type dword -value 1
+
+# change explorer to hide recent file in quick access
+write-output "hide recent files in quick access"
+set-itemproperty -path "hkcu:\software\microsoft\windows\currentversion\explorer" -name "showrecent" -type dword -value 0
+
+# change explorer to hide frequent file in quick access
+write-output "hide frequent files in quick access"
+set-itemproperty -path "hkcu:\software\microsoft\windows\currentversion\explorer" -name "showfrequent" -type dword -value 0
+
+# set system dark theme
+write-output "set dark theme"
+set-itemproperty -path "hkcu:\software\microsoft\windows\currentversion\themes\personalize" -name "systemuseslighttheme" -value 0 -type dword
+set-itemproperty -path "hkcu:\software\microsoft\windows\currentversion\themes\personalize" -name "appsuselighttheme" -value 0 -type dword
+
+# disable show recently added apps in start menu
+write-output "disable show recently added apps in start menu"
+if (-not (test-path hklm:\software\policies\microsoft\windows\explorer\hiderecentlyaddedapps)) {
+	new-item -path hklm:\software\policies\microsoft\windows -name explorer | out-null
+	new-item -path hklm:\software\policies\microsoft\windows\explorer -name hiderecentlyaddedapps | out-null
+}
+set-itemproperty -path "hklm:\software\policies\microsoft\windows\explorer" -name "hiderecentlyaddedapps" -type dword -value 1
+
+# disable show most used apps in start menu
+write-output "disable show most used apps in start menu"
+if (-not (test-path hkcu:\software\microsoft\windows\currentversion\explorer\advanced\start_trackprogs)) {
+	new-item -path hkcu:\software\microsoft\windows\currentversion\explorer\advanced -name start_trackprogs | out-null
+}
+set-itemproperty -path "hkcu:\software\microsoft\windows\currentversion\explorer\advanced" -name "start_trackprogs" -type dword -value 0
+
+# disable show suggestions occasionally in start
+write-output "disable show suggestions occasionally in start menu"
+set-itemproperty -path "hkcu:\software\microsoft\windows\currentversion\contentdeliverymanager" -name "systempanesuggestionsenabled" -type dword -value 0
+set-itemproperty -path "hkcu:\software\microsoft\windows\currentversion\contentdeliverymanager" -name "subscribedcontent-338388enabled" -type dword -value 0
+
+# disable recent files and locations in jump lists
+write-output "disable recent files and locations in jump lists"
+set-itemproperty -path "hkcu:\software\microsoft\windows\currentversion\explorer\advanced" -name "start_trackdocs" -type dword -value 0
+
+# disable show task view button
+write-output "disable show task view button"
+set-itemproperty -path "hkcu:\software\microsoft\windows\currentversion\explorer\advanced" -name "showtaskviewbutton" -type dword -value 0
+
+# disable cortana button
+write-output "disable cortana button"
+set-itemproperty -path "hkcu:\software\microsoft\windows\currentversion\explorer\advanced" -name "showcortanabutton" -type dword -value 0
+
+# disable news and interest widgets
+write-output "disable news and interest widgets"
+if (-not (test-path hkcu:\software\microsoft\windows\currentversion\feeds\shellfeedstaskbarviewmode)) {
+	new-item -path hkcu:\software\microsoft\windows\currentversion\feeds -name shellfeedstaskbarviewmode | out-null
+}
+set-itemproperty -path "hkcu:\software\microsoft\windows\currentversion\feeds" -name "shellfeedstaskbarviewmode" -type dword -value 2
+
+# hide search icon taskbar
+write-output "hide search icon in taskbar"
+set-itemproperty -path "hkcu:\software\microsoft\windows\currentversion\search" -name "searchboxtaskbarmode" -type dword -value 0
+
+# enable small icon in taskbar
+write-output "enable small icon in taskbar"
+set-itemproperty -path "hkcu:\software\microsoft\windows\currentversion\explorer\advanced" -name "taskbarsmallicons" -type dword -value 1
+
+# set desktop auto arrange and allign to grid
+write-output "set desktop auto arrange and allign to grid"
+set-itemproperty -path "hkcu:\software\microsoft\windows\shell\bags\1\desktop" -name "fflags" -type dword -value 1075839525
+
+# set custom dpi scaling to 100%
+# write-output "#set custom dpi scaling to 100%"
+# set-itemproperty -path "hkcu:\control panel\desktop" -name "win8dpiscaling" -value 1
+# set-itemproperty -path "hkcu:\control panel\desktop" -name "logpixels" -value 96
+
+# use small desktop icon
+write-output "use small desktop icon"
+set-ItemProperty -path HKCU:\Software\Microsoft\Windows\Shell\Bags\1\Desktop -name IconSize -value 32
+Stop-Process -name explorer  # explorer.exe restarts automatically after stopping
