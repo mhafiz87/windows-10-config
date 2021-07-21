@@ -9,7 +9,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 - Download script from github
 
 ```bash
-curl -LJO https://github.com/mhafiz87/windows-10-config.git
+curl -LJO https://github.com/mhafiz87/windows-10-config/archive/master.zip
 ```
 
 - Go to the folder where the script is located.
