@@ -487,3 +487,126 @@ download_windows_msixbundle_from_github -url microsoft/terminal -outputFilename 
 Write-Output "Downloading Windows 10 Debloater"
 Invoke-WebRequest -Uri "https://github.com/Sycnex/Windows10Debloater/archive/master.zip" -OutFile "$env:USERPROFILE\Desktop\Windows10Debloater.zip"
 # curl -L -o $env:USERPROFILE\Desktop\Windows10Debloater.zip https://github.com/Sycnex/Windows10Debloater/archive/master.zip
+
+Write-Host "Installing AutoHotkey"
+Install-Software -path $officeFolderPath -filename "*AutoHotkey*.*" -argumentList "/S"
+
+Write-Host "Installing 7zip"
+Install-Software -path $officeFolderPath -filename "*7z*.*" -argumentList "/S"
+
+Write-Host "Installing Notepad++"
+Install-Software -path $officeFolderPath -filename "*npp*.*" -argumentList "/S"
+
+Write-Host "Installing Java Runtime Environment v8"
+Install-Software -path $officeFolderPath -filename "*jre*.*" -argumentList "INSTALL_SILENT=Enable"
+
+Write-Host "Installing Adobe Acrobat Reader"
+Install-Software -path $officeFolderPath -filename "*AcroRdrDC*.*" -argumentList "/sAll /rs /msi EULA_ACCEPT=YES"
+
+Write-Host "Installing BalenaEtcher"
+Install-Software -path $officeFolderPath -filename "*balena*.*" -argumentList "/S"
+
+Write-Host "Installing Calibre"
+Install-Software -path $officeFolderPath -filename "*calibre*.*"
+
+Write-Host "Installing Chrome"
+Install-Software -path $officeFolderPath -filename "*Chrome*.*"
+
+Write-Host "Installing FileZilla"
+Install-Software -path $officeFolderPath -filename "*FileZilla*.*" -argumentList "/S"
+
+# if ($gpu_nvidia_exist -eq $true) {
+#     Write-Host "Installing Geforce Experiece"
+#     Install-Software -path $officeFolderPath -filename "*GeForce*.*"
+# }
+
+# Write-Host "Installing Hardware Info"
+# Install-Software -path $officeFolderPath -filename "*hwi*.*"
+
+Write-Host "Installing Angry Ip Scanner"
+Install-Software -path $officeFolderPath -filename "*ipscan*.*"
+
+Write-Host "Installing Logitech Setpoint"
+Install-Software -path $officeFolderPath -filename "*SetPoint*.*" -wait $false
+
+#  Write-Host "Installing MSI Afterburner"
+#  Install-Software -path $officeFolderPath -filename "*MSIAfterburner*.*"
+
+Write-Host "Installing Steam"
+Install-Software -path $officeFolderPath -filename "*Steam*.*" -argumentList "/S"
+
+#  Write-Host "Installing TeamViewer"
+#  Install-Software -path $officeFolderPath -filename "*TeamViewer*.*"
+
+Write-Host "Installing TorBrowser"
+Install-Software -path $officeFolderPath -filename "*torbrowser*.*"  -argumentList "/S"
+
+Write-Host "Installing VLC"
+Install-Software -path $officeFolderPath -filename "*vlc*.*" -argumentList "/S"
+
+Write-Host "Installing Win10PCap"
+Install-Software -path $officeFolderPath -filename "*win10pcap*.*"
+
+Write-Host "Installing Hosts File Editor"
+Install-Software -path $officeFolderPath -filename "*HostsFileEditorSetup*.*"
+
+Write-Host "Installing Unifying"
+Install-Software -path $officeFolderPath -filename "*unifying*.*"
+
+Write-Host "Installing wget via copying to C:\"
+$path_wget_file = $officeFolderPath + "\wget.exe"
+if (Test-Path -Path $path_wget_file -PathType Leaf) {
+    Write-Output "wget.exe file exist."
+    if (-not (Test-Path -Path "C:\wget" -PathType Container)) {
+        Write-Host "Folder doesn't exist, create folder wget"
+        New-Item -ItemType Directory -Path "C:\" -Name "wget"
+        Copy-Item -Path $officeFolderPath"\wget.exe" -Destination "C:\wget"
+    }
+    else {
+        Copy-Item -Path $officeFolderPath"\wget.exe" -Destination "C:\wget"
+    }
+    Add-Env-Variable -envName path -userType machine -newEnv "C:\wget"  
+}
+else {
+    Write-Output "wget.exe file doesn't exist."
+}
+
+Write-Host "Installing Arduino"
+Install-Software -path $programmingFolderPath -filename "*arduino*.*"
+
+Write-Host "Installing cmake"
+Install-Software -path $programmingFolderPath -filename "*cmake*.*"
+Add-Env-Variable -envName path -userType machine -newEnv "C:\Program Files\CMake\bin"
+
+Write-Host "Installing git"
+Install-Software -path $programmingFolderPath -filename "*git*.*" -argumentList "/VERYSILENT /NORESTART"
+
+Write-Host "Installing MingW"
+Install-Software -path $programmingFolderPath -filename "*mingw*.*"
+Add-Env-Variable -envName path -userType machine -newEnv "C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin"
+
+Write-Host "Installing Perforce"
+Install-Software -path $programmingFolderPath -filename "*p4v*.*" -argumentList "/s REMOVEAPPS=P4V,P4ADMIN,P4"
+
+Write-Host "Installing Python 3"
+Install-Software -path $programmingFolderPath -filename "*python-3*.*" -argumentList "/passive PrependPath=1"
+
+Write-Host "Installing Visual Studio Code"
+Install-Software -path $programmingFolderPath -filename "*VSCode*.*" -argumentList "/VERYSILENT /NORESTART /MERGETASKS=!runcode"
+
+Write-Host "Installing VMWare Player"
+Install-Software -path $programmingFolderPath -filename "*vmware*.*"
+
+Write-Host "Installing Zeal"
+Install-Software -path $programmingFolderPath -filename "*zeal*.*" -argumentList "/S"
+
+Write-Host "Installing ctags"
+Install-Software -path $programmingFolderPath -filename "*ctags*.*" -extract $true -extract_location "C:\"
+Add-Env-Variable -envName path -userType machine -newEnv "C:\ctags"
+
+Write-Host "Installing swigwin"
+Install-Software -path $programmingFolderPath -filename "*swig*.*" -extract $true -extract_location "C:\"
+Add-Env-Variable -envName path -userType machine -newEnv "C:\swig"
+
+Write-Host "Installing Virtual Studio for C++"
+Install-Software -path $programmingFolderPath -filename "*vs_community*" -argumentList "--noweb --passive --norestart --add Microsoft.VisualStudio.Component.CoreEditor --add Microsoft.VisualStudio.Workload.NativeDesktop --add Component.Incredibuild --add Component.IncredibuildMenu --add Microsoft.VisualStudio.Component.VC.140 --add Microsoft.VisualStudio.Component.VC.CLI.Support --add Microsoft.VisualStudio.Component.VC.v141.x86.x64 --includeRecommended"
