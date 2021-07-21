@@ -482,3 +482,7 @@ download_windows_msixbundle_from_github -url microsoft/winget-cli -outputFilenam
 Write-Output "Downloading Windows Terminal"
 download_windows_msixbundle_from_github -url microsoft/terminal -outputFilename Microsoft.WindowsTerminal_version_8wekyb3d8bbwe.msixbundle
 
+# Download Windows10Debloater to Desktop
+Write-Output "Downloading Windows 10 Debloater"
+Invoke-WebRequest -Uri "https://github.com/Sycnex/Windows10Debloater/archive/master.zip" -OutFile "$env:USERPROFILE\Desktop\Windows10Debloater.zip"
+# curl -L -o $env:USERPROFILE\Desktop\Windows10Debloater.zip https://github.com/Sycnex/Windows10Debloater/archive/master.zip
