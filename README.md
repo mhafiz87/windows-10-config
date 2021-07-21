@@ -3,7 +3,7 @@
 - Download script from github. Open command prompt and type:
 
 ```cmd
-curl -LO https://github.com/mhafiz87/windows-10-config/archive/master.zip
+curl -L -o %userprofile%\Desktop\windows-10-config.zip https://github.com/mhafiz87/windows-10-config/archive/master.zip
 ```
 
 - Enable powershell to run script. Run powershell:
