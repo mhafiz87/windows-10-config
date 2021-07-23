@@ -167,7 +167,7 @@ Write-Host "Installing 7zip"
 Install-Software -path $officeFolderPath -filename "*7z*.*" -argumentList "/S /D=""$env:localappdata\7-Zip"""
 
 Write-Host "Installing Notepad++"
-Install-Software -path $officeFolderPath -filename "*npp*.*" -argumentList "/S"
+Install-Software -path $officeFolderPath -filename "*npp*.*" -argumentList "/S /D=""$env:localappdata\Notepad++"""
 
 Write-Host "Installing Java Runtime Environment v8"
 Install-Software -path $officeFolderPath -filename "*jre*.*" -argumentList "INSTALL_SILENT=Enable"
