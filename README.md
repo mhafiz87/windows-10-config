@@ -27,5 +27,6 @@ Invoke-WebRequest -Uri "https://github.com/Sycnex/Windows10Debloater/archive/mas
 
 ## TODO LIST
 
+- [x] ~~Change autohotkey silent installation arguments (INTERNAL branch)~~
 - [ ] Script to extract vscode extensions.
   - [ ] Test-Path exist or not.
