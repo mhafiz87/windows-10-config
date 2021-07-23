@@ -9,7 +9,7 @@ curl -L -o %userprofile%\Desktop\windows-10-config.zip https://github.com/mhafiz
 - Enable powershell to run script. Run powershell:
 
 ```powershell
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force -SkipPublisherCheck
+Set-ExecutionPolicy -ExecutionPolicy ByPass -Scope CurrentUser -Force
 ```
 
 - Go to the folder where the script is located.
