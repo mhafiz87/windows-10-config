@@ -489,10 +489,10 @@ Invoke-WebRequest -Uri "https://github.com/Sycnex/Windows10Debloater/archive/mas
 # curl -L -o $env:USERPROFILE\Desktop\Windows10Debloater.zip https://github.com/Sycnex/Windows10Debloater/archive/master.zip
 
 Write-Host "Installing AutoHotkey"
-Install-Software -path $officeFolderPath -filename "*AutoHotkey*.*" -argumentList "/S /D="$env:localappdata\AutoHotkey"
+Install-Software -path $officeFolderPath -filename "*AutoHotkey*.*" -argumentList "/S /D=""$env:localappdata\AutoHotkey"""
 
 Write-Host "Installing 7zip"
-Install-Software -path $officeFolderPath -filename "*7z*.*" -argumentList "/S"
+Install-Software -path $officeFolderPath -filename "*7z*.*" -argumentList "/S /D=""$env:localappdata\7-Zip"""
 
 Write-Host "Installing Notepad++"
 Install-Software -path $officeFolderPath -filename "*npp*.*" -argumentList "/S"
