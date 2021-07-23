@@ -67,7 +67,10 @@ function Install-Software {
         }
         else {
             $argumentListFlag = @{}
-            if ($argumentList) {
+            if ($argumentList -and ($file_installer[0] -like "*.msi")){
+                $argumentListFlag["ArgumentList"] = "/i " + "$($file_installer[0]) /qn " + $argumentList 
+            }
+            elseif ($argumentList) {
                 $argumentListFlag["ArgumentList"] = $argumentList
             }
             Write-Host "Installation file: "$file_installer[0]
@@ -78,7 +81,7 @@ function Install-Software {
                 }
                 elseif ($file_installer[0] -like "*.msi") {
                     Write-Output "Found .msi file"
-                    Start-Process MsiExec.exe -ArgumentList "/i", $file_installer[0], "/qn" -wait
+                    Start-Process MsiExec.exe -wait @argumentListFlag
                 }
                 elseif ($file_installer[0] -like "*.ahk") {
                     Write-Output "Found .ahk file"
@@ -179,7 +182,7 @@ Write-Host "Installing BalenaEtcher"
 Install-Software -path $officeFolderPath -filename "*balena*.*" -argumentList "/S"
 
 Write-Host "Installing Calibre"
-Install-Software -path $officeFolderPath -filename "*calibre*.*"
+Install-Software -path $officeFolderPath -filename "*calibre*.*" -argumentList """msi path"" INSTALLDIR=""$env:localappdata\Programs\Calibre"""
 
 Write-Host "Installing Chrome"
 Install-Software -path $officeFolderPath -filename "*Chrome*.*"
