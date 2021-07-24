@@ -207,7 +207,7 @@ Install-Software -path $officeFolderPath -filename "*ipscan*.*"
 
 Write-Host "Installing ISOWorkshop"
 # Install using AutoHotkey
-Install-Software -path $officeFolderPath -filename "*isoworkshop*.*" -argumentList "/S /D=$env:localappdata\Programs\ISO Workshop"
+Install-Software -path $officeFolderPath -filename "*isoworkshop*.*"
 
 Write-Host "Installing Logitech Setpoint"
 Install-Software -path $officeFolderPath -filename "*SetPoint*.*" -wait $false
@@ -222,7 +222,14 @@ Install-Software -path $officeFolderPath -filename "*Steam*.*" -argumentList "/S
 #  Install-Software -path $officeFolderPath -filename "*TeamViewer*.*"
 
 Write-Host "Installing TorBrowser"
-Install-Software -path $officeFolderPath -filename "*torbrowser*.*"  -argumentList "/S"
+Install-Software -path $officeFolderPath -filename "*torbrowser*.*"  -argumentList "/S" -argumentList "/S /D=$env:localappdata\Programs\Tor Browser"
+$TargetFile = "$env:localappdata\Programs\Tor Browser\Browser\firefox.exe"
+$ShortcutFile = "$env:appdata\Microsoft\Windows\Start Menu\Programs\Tor.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.Save()
+# New-Item -Path "$env:appdata\Microsoft\Windows\Start Menu\Programs\Tor.exe" -ItemType SymbolicLink -Value "$env:localappdata\Programs\Tor Browser\Browser\firefox.exe"
 
 Write-Host "Installing VLC"
 Install-Software -path $officeFolderPath -filename "*vlc*.*" -argumentList "/S"
