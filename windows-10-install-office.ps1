@@ -164,13 +164,13 @@ function Install-Software {
 }
 
 Write-Host "Installing AutoHotkey"
-Install-Software -path $officeFolderPath -filename "*AutoHotkey*.*" -argumentList "/S /D=""$env:localappdata\Programs\AutoHotkey"""
+Install-Software -path $officeFolderPath -filename "*AutoHotkey*.*" -argumentList "/S /D=$env:localappdata\Programs\AutoHotkey"
 
 Write-Host "Installing 7zip"
-Install-Software -path $officeFolderPath -filename "*7z*.*" -argumentList "/S /D=""$env:localappdata\Programs\7-Zip"""
+Install-Software -path $officeFolderPath -filename "*7z*.*" -argumentList "/S /D=$env:localappdata\Programs\7-Zip"
 
 Write-Host "Installing Notepad++"
-Install-Software -path $officeFolderPath -filename "*npp*.*" -argumentList "/S"
+Install-Software -path $officeFolderPath -filename "*npp*.*" -argumentList "/S /D=$env:localappdata\Programs\Notepad++"
 
 Write-Host "Installing Java Runtime Environment v8"
 Install-Software -path $officeFolderPath -filename "*jre*.*" -argumentList "INSTALL_SILENT=Enable"
@@ -182,13 +182,15 @@ Write-Host "Installing BalenaEtcher"
 Install-Software -path $officeFolderPath -filename "*balena*.*" -argumentList "/S"
 
 Write-Host "Installing Calibre"
-Install-Software -path $officeFolderPath -filename "*calibre*.*" -argumentList " INSTALLDIR=""$env:localappdata\Programs\Calibre"""
+# Cannot Install To Local User
+Install-Software -path $officeFolderPath -filename "*calibre*.*"
 
 Write-Host "Installing Chrome"
-Install-Software -path $officeFolderPath -filename "*Chrome*.*" -argumentList " INSTALLDIR=""$env:localappdata\Programs\Google\Chrome"""
+# Cannot Install To Local User
+Install-Software -path $officeFolderPath -filename "*Chrome*.*"
 
 Write-Host "Installing FileZilla"
-Install-Software -path $officeFolderPath -filename "*FileZilla*.*" -argumentList "/S"
+Install-Software -path $officeFolderPath -filename "*FileZilla*.*" -argumentList "/S /D=$env:localappdata\Programs\FileZilla"
 
 # if ($gpu_nvidia_exist -eq $true) {
 #     Write-Host "Installing Geforce Experiece"
