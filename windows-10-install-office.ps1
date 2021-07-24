@@ -253,11 +253,8 @@ if (Test-Path -Path $path_wget_file -PathType Leaf) {
     if (-not (Test-Path -Path "$env:localappdata\Programs\wget" -PathType Container)) {
         Write-Host "Folder doesn't exist, create folder wget"
         New-Item -ItemType Directory -Path "$env:localappdata\Programs" -Name "wget"
-        Copy-Item -Path $officeFolderPath"\wget.exe" -Destination "$env:localappdata\Programs\wget"
     }
-    else {
-        Copy-Item -Path $officeFolderPath"\wget.exe" -Destination "$env:localappdata\Programs\wget"
-    }
+    Copy-Item -Path $officeFolderPath"\wget.exe" -Destination "$env:localappdata\Programs\wget"
     Add-Env-Variable -envName path -userType machine -newEnv "$env:localappdata\Programs\wget"  
 }
 else {
