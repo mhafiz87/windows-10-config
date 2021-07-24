@@ -250,15 +250,15 @@ Write-Host "Installing wget via copying to C:\"
 $path_wget_file = $officeFolderPath + "\wget.exe"
 if (Test-Path -Path $path_wget_file -PathType Leaf) {
     Write-Output "wget.exe file exist."
-    if (-not (Test-Path -Path "C:\wget" -PathType Container)) {
+    if (-not (Test-Path -Path "$env:localappdata\Programs\wget" -PathType Container)) {
         Write-Host "Folder doesn't exist, create folder wget"
-        New-Item -ItemType Directory -Path "C:\" -Name "wget"
-        Copy-Item -Path $officeFolderPath"\wget.exe" -Destination "C:\wget"
+        New-Item -ItemType Directory -Path "$env:localappdata\Programs" -Name "wget"
+        Copy-Item -Path $officeFolderPath"\wget.exe" -Destination "$env:localappdata\Programs\wget"
     }
     else {
-        Copy-Item -Path $officeFolderPath"\wget.exe" -Destination "C:\wget"
+        Copy-Item -Path $officeFolderPath"\wget.exe" -Destination "$env:localappdata\Programs\wget"
     }
-    Add-Env-Variable -envName path -userType machine -newEnv "C:\wget"  
+    Add-Env-Variable -envName path -userType machine -newEnv "$env:localappdata\Programs\wget"  
 }
 else {
     Write-Output "wget.exe file doesn't exist."
