@@ -183,11 +183,11 @@ Write-Host "Installing BalenaEtcher"
 Install-Software -path $officeFolderPath -filename "*balena*.*" -argumentList "/S"
 
 Write-Host "Installing Calibre"
-# Cannot Install To Local User
+# Cannot Install To Local User. Using .msi
 Install-Software -path $officeFolderPath -filename "*calibre*.*"
 
 Write-Host "Installing Chrome"
-# Cannot Install To Local User
+# Cannot Install To Local User. Using .msi
 Install-Software -path $officeFolderPath -filename "*Chrome*.*"
 
 Write-Host "Installing FileZilla"
@@ -232,12 +232,15 @@ $Shortcut.Save()
 # New-Item -Path "$env:appdata\Microsoft\Windows\Start Menu\Programs\Tor.exe" -ItemType SymbolicLink -Value "$env:localappdata\Programs\Tor Browser\Browser\firefox.exe"
 
 Write-Host "Installing VLC"
-Install-Software -path $officeFolderPath -filename "*vlc*.*" -argumentList "/S"
+# Install using AutoHotkey
+Install-Software -path $officeFolderPath -filename "*vlc*.*"
 
-Write-Host "Installing Win10PCap"
-Install-Software -path $officeFolderPath -filename "*win10pcap*.*"
+# Write-Host "Installing Win10PCap"
+# Cannot Install To Local User. Using .msi
+# Install-Software -path $officeFolderPath -filename "*win10pcap*.*"
 
 Write-Host "Installing Hosts File Editor"
+# Cannot Install To Local User. Using .msi
 Install-Software -path $officeFolderPath -filename "*HostsFileEditorSetup*.*"
 
 Write-Host "Installing Unifying"
