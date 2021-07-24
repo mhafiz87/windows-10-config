@@ -68,7 +68,7 @@ function Install-Software {
         else {
             $argumentListFlag = @{}
             if ($argumentList -and ($file_installer[0] -like "*.msi")){
-                $argumentListFlag["ArgumentList"] = "/i " + "$($file_installer[0]) /qn " + $argumentList 
+                $argumentListFlag["ArgumentList"] = "/i " + """$($file_installer[0])""" + $argumentList + " /qn" 
             }
             elseif ($argumentList) {
                 $argumentListFlag["ArgumentList"] = $argumentList
@@ -170,7 +170,7 @@ Write-Host "Installing 7zip"
 Install-Software -path $officeFolderPath -filename "*7z*.*" -argumentList "/S /D=""$env:localappdata\Programs\7-Zip"""
 
 Write-Host "Installing Notepad++"
-Install-Software -path $officeFolderPath -filename "*npp*.*" -argumentList "/S /D=""$env:localappdata\Programs\Notepad++"""
+Install-Software -path $officeFolderPath -filename "*npp*.*" -argumentList "/S"
 
 Write-Host "Installing Java Runtime Environment v8"
 Install-Software -path $officeFolderPath -filename "*jre*.*" -argumentList "INSTALL_SILENT=Enable"
