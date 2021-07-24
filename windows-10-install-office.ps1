@@ -182,10 +182,10 @@ Write-Host "Installing BalenaEtcher"
 Install-Software -path $officeFolderPath -filename "*balena*.*" -argumentList "/S"
 
 Write-Host "Installing Calibre"
-Install-Software -path $officeFolderPath -filename "*calibre*.*" -argumentList """msi path"" INSTALLDIR=""$env:localappdata\Programs\Calibre"""
+Install-Software -path $officeFolderPath -filename "*calibre*.*" -argumentList " INSTALLDIR=""$env:localappdata\Programs\Calibre"""
 
 Write-Host "Installing Chrome"
-Install-Software -path $officeFolderPath -filename "*Chrome*.*"
+Install-Software -path $officeFolderPath -filename "*Chrome*.*" -argumentList " INSTALLDIR=""$env:localappdata\Programs\Google\Chrome"""
 
 Write-Host "Installing FileZilla"
 Install-Software -path $officeFolderPath -filename "*FileZilla*.*" -argumentList "/S"
