@@ -179,6 +179,7 @@ Write-Host "Installing Adobe Acrobat Reader"
 Install-Software -path $officeFolderPath -filename "*AcroRdrDC*.*" -argumentList "/sAll /rs /msi EULA_ACCEPT=YES"
 
 Write-Host "Installing BalenaEtcher"
+# Automatic Install To Local User
 Install-Software -path $officeFolderPath -filename "*balena*.*" -argumentList "/S"
 
 Write-Host "Installing Calibre"
@@ -201,7 +202,12 @@ Install-Software -path $officeFolderPath -filename "*FileZilla*.*" -argumentList
 # Install-Software -path $officeFolderPath -filename "*hwi*.*"
 
 Write-Host "Installing Angry Ip Scanner"
+# Install using AutoHotkey
 Install-Software -path $officeFolderPath -filename "*ipscan*.*"
+
+Write-Host "Installing ISOWorkshop"
+# Install using AutoHotkey
+Install-Software -path $officeFolderPath -filename "*isoworkshop*.*" -argumentList "/S /D=$env:localappdata\Programs\ISO Workshop"
 
 Write-Host "Installing Logitech Setpoint"
 Install-Software -path $officeFolderPath -filename "*SetPoint*.*" -wait $false
