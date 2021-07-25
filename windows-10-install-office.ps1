@@ -67,7 +67,7 @@ function Install-Software {
         }
         else {
             $argumentListFlag = @{}
-            if ($argumentList -and ($file_installer[0] -like "*.msi")){
+            if ($argumentList -and ($file_installer[0] -like "*.msi")) {
                 $argumentListFlag["ArgumentList"] = "/i " + """$($file_installer[0])""" + $argumentList + " /qn" 
             }
             elseif ($argumentList) {
@@ -244,6 +244,7 @@ Write-Host "Installing Hosts File Editor"
 Install-Software -path $officeFolderPath -filename "*HostsFileEditorSetup*.*"
 
 Write-Host "Installing Unifying"
+# Cannot Install To Local User.
 Install-Software -path $officeFolderPath -filename "*unifying*.*"
 
 Write-Host "Installing wget via copying to C:\"
