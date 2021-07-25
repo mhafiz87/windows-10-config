@@ -1,10 +1,17 @@
 # **WINDOWS 10 CONFIG AUTOMATE**
 
 - Download script from github. Open command prompt and type:
+  - using Command Prompt
 
-```cmd
-curl -L -o %userprofile%\Desktop\windows-10-config.zip https://github.com/mhafiz87/windows-10-config/archive/master.zip
-```
+    ```cmd
+    curl -L -o %userprofile%\Desktop\windows-10-config.zip https://github.com/mhafiz87/windows-10-config/archive/master.zip
+    ```
+
+  - using Powershell
+
+    ```powershell
+    Invoke-WebRequest -Uri https://github.com/mhafiz87/windows-10-config/archive/master.zip -OutFile ~\Desktop\master.zip
+    ```
 
 - Enable powershell to run script. Run powershell:
 
