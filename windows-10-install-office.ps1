@@ -243,6 +243,10 @@ Write-Host "Installing Hosts File Editor"
 # Cannot Install To Local User. Using .msi
 Install-Software -path $officeFolderPath -filename "*HostsFileEditorSetup*.*"
 
+Write-Host "Installing Iriun Webcam"
+# Install using AutoHotkey
+Install-Software -path $officeFolderPath -filename "WinWebcam*.*"
+
 Write-Host "Installing Unifying"
 # Cannot Install To Local User.
 Install-Software -path $officeFolderPath -filename "*unifying*.*"
