@@ -35,8 +35,8 @@ Invoke-WebRequest -Uri "https://github.com/Sycnex/Windows10Debloater/archive/mas
 ## TODO LIST
 
 - [x] ~~Change autohotkey silent installation arguments (INTERNAL branch)~~
-- [x] Add Iruin Webcam install script in office.
-- [ ] Add vscode-settings.json
+- [x] ~~Add Iruin Webcam install script in office.~~
+- [x] ~~Add vscode-settings.json~~
 - [ ] Change INTERNAL branch windows-10-config.ps1 with latest office installation scripts.
 - [ ] Change if possible programming software installation path to localappdata.
 - [ ] Script to extract vscode extensions.
