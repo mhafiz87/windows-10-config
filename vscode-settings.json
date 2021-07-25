@@ -1,0 +1,146 @@
+{
+    "code-runner.clearPreviousOutput": true,
+    "code-runner.executorMap": {
+        "python": "$pythonPath -u $fullFileName"
+    },
+    "code-runner.runInTerminal": true,
+    "code-runner.saveFileBeforeRun": true,
+    "code-runner.showExecutionMessage": false,
+    "editor.detectIndentation": true,
+    "editor.fontFamily": "'FiraCode NF', 'Fira Code', 'Cascadia Code PL', Consolas, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 12,
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": true,
+    "editor.minimap.enabled": true,
+    "editor.lineNumbers": "relative",
+    "editor.linkedEditing": true,
+    "editor.showFoldingControls": "always",
+    "editor.suggestSelection": "first",
+    "editor.tabSize": 4,
+    "explorer.openEditors.visible": 5,
+    "explorer.confirmDelete": false,
+    "files.associations": {
+        "*.ino": "cpp"
+    },
+    "files.exclude": {
+        "**/.git": false,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true
+    },
+    "liveServer.settings.donotShowInfoMsg": true,
+    "prettier.tabWidth": 4,
+    "python.languageServer": "Pylance",
+    "python.formatting.blackArgs": [
+        "--line-length=120"
+    ],
+    "python.formatting.blackPath": "~/AppData/Local/Programs/Python/Python39/Scripts/black.exe",
+    "python.formatting.provider": "black",
+    "python.linting.flake8Path": "~/AppData/Local/Programs/Python/Python39/Scripts/flake8.exe",
+    "python.linting.flake8Args": [
+        "--ignore=E501"
+    ],
+    "python.venvPath": "~/.virtualenvs",
+    "telemetry.enableTelemetry": false,
+    "terminal.integrated.cwd": "${fileDirname}",
+    "terminal.integrated.fontFamily": "'FiraCode NF','Cascadia Code', Consolas, 'Courier New', monospace",
+    "terminal.integrated.fontSize": 11,
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd"
+        },
+        "Git Bash": {
+            "source": "Git Bash"
+        }
+    },
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]"
+    ],
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+    "todohighlight.isCaseSensitive": true,
+    "todohighlight.isEnable": true,
+    "todohighlight.keywords": [
+        {
+            "isWholeLine": true,
+            "text": "TODO:"
+        },
+        {
+            "isWholeLine": true,
+            "text": "FIXME:"
+        }
+    ],
+    "window.autoDetectColorScheme": true,
+    "window.zoomLevel": 0,
+    "workbench.colorTheme": "Default Dark+",
+    "workbench.editor.pinnedTabSizing": "compact",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.list.horizontalScrolling": true,
+    "workbench.startupEditor": "none",
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "jupyter.interactiveWindowMode": "perFile",
+    "jupyter.askForKernelRestart": false,
+    "python.showStartPage": false,
+    "vim.leader": "<space>",
+    "vim.easymotion": true,
+    "vim.surround": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<C-n>"
+            ],
+            "commands": [
+                ":nohl"
+            ]
+        },
+    ],
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false,
+        "<C-w>": false
+    },
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    }
+}
