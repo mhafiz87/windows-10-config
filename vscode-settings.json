@@ -132,7 +132,7 @@
             "commands": [
                 ":nohl"
             ]
-        },
+        }
     ],
     "vim.handleKeys": {
         "<C-a>": false,
