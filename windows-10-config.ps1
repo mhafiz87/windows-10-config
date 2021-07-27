@@ -173,16 +173,16 @@ set-itemproperty -path "hklm:\software\microsoft\internet explorer\main" -name "
 
 $password_flag = read-host "do you want to enable automatic login? [y]es or [n}o"
 if ($password_flag -eq "y") {
-	write-output "automatic login enable"
-	write-output "please input password:"
-	$password = read-host -assecurestring
-	$password = [system.runtime.interopservices.marshal]::ptrtostringauto([system.runtime.interopservices.marshal]::securestringtobstr($password))
-	new-itemproperty -path "hklm:\software\microsoft\windows nt\currentversion\winlogon" -name "defaultpassword" -type string -value $password
-	set-itemproperty -path "hklm:\software\microsoft\windows nt\currentversion\winlogon" -name "autoadminlogon" -type string -value 1
-	new-itemproperty -path "hklm:\software\microsoft\windows nt\currentversion\winlogon" -name "defaultusername" -type string -value $env:username
+    write-output "automatic login enable"
+    write-output "please input password:"
+    $password = read-host -assecurestring
+    $password = [system.runtime.interopservices.marshal]::ptrtostringauto([system.runtime.interopservices.marshal]::securestringtobstr($password))
+    new-itemproperty -path "hklm:\software\microsoft\windows nt\currentversion\winlogon" -name "defaultpassword" -type string -value $password
+    set-itemproperty -path "hklm:\software\microsoft\windows nt\currentversion\winlogon" -name "autoadminlogon" -type string -value 1
+    new-itemproperty -path "hklm:\software\microsoft\windows nt\currentversion\winlogon" -name "defaultusername" -type string -value $env:username
 }
 else {
-	write-output "automatic login remain disable"
+    write-output "automatic login remain disable"
 }
 
 # change explorer home screen back to "this pc"
@@ -215,15 +215,15 @@ set-itemproperty -path "hkcu:\software\microsoft\windows\currentversion\themes\p
 # disable show recently added apps in start menu
 write-output "disable show recently added apps in start menu"
 if (-not (test-path hklm:\software\policies\microsoft\windows\explorer\hiderecentlyaddedapps)) {
-	new-item -path hklm:\software\policies\microsoft\windows -name explorer | out-null
-	new-item -path hklm:\software\policies\microsoft\windows\explorer -name hiderecentlyaddedapps | out-null
+    new-item -path hklm:\software\policies\microsoft\windows -name explorer | out-null
+    new-item -path hklm:\software\policies\microsoft\windows\explorer -name hiderecentlyaddedapps | out-null
 }
 set-itemproperty -path "hklm:\software\policies\microsoft\windows\explorer" -name "hiderecentlyaddedapps" -type dword -value 1
 
 # disable show most used apps in start menu
 write-output "disable show most used apps in start menu"
 if (-not (test-path hkcu:\software\microsoft\windows\currentversion\explorer\advanced\start_trackprogs)) {
-	new-item -path hkcu:\software\microsoft\windows\currentversion\explorer\advanced -name start_trackprogs | out-null
+    new-item -path hkcu:\software\microsoft\windows\currentversion\explorer\advanced -name start_trackprogs | out-null
 }
 set-itemproperty -path "hkcu:\software\microsoft\windows\currentversion\explorer\advanced" -name "start_trackprogs" -type dword -value 0
 
@@ -247,7 +247,7 @@ set-itemproperty -path "hkcu:\software\microsoft\windows\currentversion\explorer
 # disable news and interest widgets
 write-output "disable news and interest widgets"
 if (-not (test-path hkcu:\software\microsoft\windows\currentversion\feeds\shellfeedstaskbarviewmode)) {
-	new-item -path hkcu:\software\microsoft\windows\currentversion\feeds -name shellfeedstaskbarviewmode | out-null
+    new-item -path hkcu:\software\microsoft\windows\currentversion\feeds -name shellfeedstaskbarviewmode | out-null
 }
 set-itemproperty -path "hkcu:\software\microsoft\windows\currentversion\feeds" -name "shellfeedstaskbarviewmode" -type dword -value 2
 
@@ -272,6 +272,14 @@ set-itemproperty -path "hkcu:\software\microsoft\windows\shell\bags\1\desktop" -
 write-output "use small desktop icon"
 set-ItemProperty -path HKCU:\Software\Microsoft\Windows\Shell\Bags\1\Desktop -name IconSize -value 32
 Stop-Process -name explorer  # explorer.exe restarts automatically after stopping
+
+# Remove the 260 Character Path Limit
+Write-Output "Remove the 260 Character Path Limit"
+if (-not (test-path hklm:\SYSTEM\CurrentControlSet\Control\FileSystem\LongPathsEnabled)) {
+    new-item -path hklm:\SYSTEM\CurrentControlSet\Control\FileSystem -name LongPathsEnabled | out-null
+}
+set-itemproperty -path "hklm:\SYSTEM\CurrentControlSet\Control\FileSystem" -name "LongPathsEnabled" -type dword -value 1
+
 
 Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -SkipPublisherCheck
 Install-Module -Name 7Zip4Powershell -Force -SkipPublisherCheck
