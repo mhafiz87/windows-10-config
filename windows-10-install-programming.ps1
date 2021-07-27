@@ -164,7 +164,19 @@ function Install-Software {
 }
 
 Write-Host "Installing Arduino"
-Install-Software -path $programmingFolderPath -filename "*arduino*.*"
+$path_wget_file = $programmingFolderPath + "\*arduino*.*"
+if (Test-Path -Path $path_wget_file -PathType Leaf) {
+    Write-Output "arduino installer exist."
+    Write-Output "Adding 3 Arduino cridentials."
+    Import-Certificate -FilePath AdafruitCircuitPlayground.cer -CertStoreLocation Cert:\LocalMachine\TrustedPublisher
+    Import-Certificate -FilePath arduino.cer -CertStoreLocation Cert:\LocalMachine\TrustedPublisher
+    Import-Certificate -FilePath linino-boards_amd64.cer -CertStoreLocation Cert:\LocalMachine\TrustedPublisher
+    Install-Software -path $programmingFolderPath -filename "*arduino*.*" -argumentList "/S /D=$env:localappdata\Programs\Arduino"
+}
+else {
+    Write-Output "arduino installer doesn't exist."
+}
+# Install-Software -path $programmingFolderPath -filename "*arduino*.*"
 
 Write-Host "Installing cmake"
 Install-Software -path $programmingFolderPath -filename "*cmake*.*"
@@ -181,10 +193,10 @@ Write-Host "Installing Perforce"
 Install-Software -path $programmingFolderPath -filename "*p4v*.*" -argumentList "/s REMOVEAPPS=P4V,P4ADMIN,P4"
 
 Write-Host "Installing Python 3"
-Install-Software -path $programmingFolderPath -filename "*python-3*.*" -argumentList "/passive PrependPath=1"
+Install-Software -path $programmingFolderPath -filename "*python-3*.*" -argumentList "/quiet PrependPath=1 AssociateFiles=1 Include_symbols=1 Include_debug=1"
 
 Write-Host "Installing Visual Studio Code"
-Install-Software -path $programmingFolderPath -filename "*VSCode*.*" -argumentList "/VERYSILENT /NORESTART /MERGETASKS=!runcode"
+Install-Software -path $programmingFolderPath -filename "*VSCodeUser*.*" -argumentList "/VERYSILENT /NORESTART /MERGETASKS=!runcode"
 
 Write-Host "Installing VMWare Player"
 Install-Software -path $programmingFolderPath -filename "*vmware*.*"
