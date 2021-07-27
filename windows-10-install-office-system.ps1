@@ -164,16 +164,16 @@ function Install-Software {
 }
 
 Write-Host "Installing AutoHotkey"
-Install-Software -path $officeFolderPath -filename "*AutoHotkey*.*" -argumentList "/S /D=$env:localappdata\Programs\AutoHotkey"
+Install-Software -path $officeFolderPath -filename "*AutoHotkey*.*" -argumentList "/S"
 
 Write-Host "Installing 7zip"
-Install-Software -path $officeFolderPath -filename "*7z*.*" -argumentList "/S /D=$env:localappdata\Programs\7-Zip"
+Install-Software -path $officeFolderPath -filename "*7z*.*" -argumentList "/S"
 
 Write-Host "Installing Notepad++"
-Install-Software -path $officeFolderPath -filename "*npp*.*" -argumentList "/S /D=$env:localappdata\Programs\Notepad++"
+Install-Software -path $officeFolderPath -filename "*npp*.*" -argumentList "/S"
 
 Write-Host "Installing Java Runtime Environment v8"
-Install-Software -path $officeFolderPath -filename "*jre*.*" -argumentList "INSTALL_SILENT=Enable"
+Install-Software -path $officeFolderPath -filename "*jre*.*" -argumentList "/s"
 
 Write-Host "Installing Adobe Acrobat Reader"
 Install-Software -path $officeFolderPath -filename "*AcroRdrDC*.*" -argumentList "/sAll /rs /msi EULA_ACCEPT=YES"
@@ -191,7 +191,7 @@ Write-Host "Installing Chrome"
 Install-Software -path $officeFolderPath -filename "*Chrome*.*"
 
 Write-Host "Installing FileZilla"
-Install-Software -path $officeFolderPath -filename "*FileZilla*.*" -argumentList "/S /D=$env:localappdata\Programs\FileZilla"
+Install-Software -path $officeFolderPath -filename "*FileZilla*.*" -argumentList "/S"
 
 # if ($gpu_nvidia_exist -eq $true) {
 #     Write-Host "Installing Geforce Experiece"
@@ -202,11 +202,9 @@ Install-Software -path $officeFolderPath -filename "*FileZilla*.*" -argumentList
 # Install-Software -path $officeFolderPath -filename "*hwi*.*"
 
 Write-Host "Installing Angry Ip Scanner"
-# Install using AutoHotkey
 Install-Software -path $officeFolderPath -filename "*ipscan*.*"
 
 Write-Host "Installing ISOWorkshop"
-# Install using AutoHotkey
 Install-Software -path $officeFolderPath -filename "*isoworkshop*.*"
 
 Write-Host "Installing Logitech Setpoint"
@@ -222,9 +220,9 @@ Install-Software -path $officeFolderPath -filename "*Steam*.*" -argumentList "/S
 #  Install-Software -path $officeFolderPath -filename "*TeamViewer*.*"
 
 Write-Host "Installing TorBrowser"
-Install-Software -path $officeFolderPath -filename "*torbrowser*.*"  -argumentList "/S" -argumentList "/S /D=$env:localappdata\Programs\Tor Browser"
-$TargetFile = "$env:localappdata\Programs\Tor Browser\Browser\firefox.exe"
-$ShortcutFile = "$env:appdata\Microsoft\Windows\Start Menu\Programs\Tor.lnk"
+Install-Software -path $officeFolderPath -filename "*torbrowser*.*" -argumentList "/S /D=C:\Program Files\Tor Browser"
+$TargetFile = "C:\Program Files\Tor Browser\Browser\firefox.exe"
+$ShortcutFile = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Tor.lnk"
 $WScriptShell = New-Object -ComObject WScript.Shell
 $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
 $Shortcut.TargetPath = $TargetFile
