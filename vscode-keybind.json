@@ -1,0 +1,90 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "ctrl+alt+b",
+        "command": "workbench.action.toggleActivityBarVisibility"
+    },
+    {
+        "key": "ctrl+k ctrl+b",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "shift+alt+2",
+        "command": "workbench.action.editorLayoutTwoColumns"
+    },
+    {
+        "key": "ctrl+alt+p",
+        "command": "workbench.action.toggleMaximizedPanel"
+    },
+    {
+        "key": "ctrl+shift+x",
+        "command": "workbench.action.terminal.kill"
+    },
+    {
+        "key": "ctrl+tab",
+        "command": "workbench.action.nextEditorInGroup"
+    },
+    {
+        "key": "ctrl+shift+tab",
+        "command": "workbench.action.previousEditorInGroup"
+    },
+    {
+        "key": "F2",
+        "command": "toggle",
+        // "when": "editorTextFocus",
+        "args": {
+            "id": "darklight",
+            "value": [
+                {
+                    // "workbench.colorTheme": "Gruvbox Material Dark"
+                    "workbench.colorTheme": "Default Dark+"
+                    // "workbench.colorTheme": "Monokai ST3"
+                },
+                {
+                    // "workbench.colorTheme": "Gruvbox Material Light"
+                    "workbench.colorTheme": "Default Light+"
+                    // "workbench.colorTheme": "Default Light+"
+                }
+            ]
+        }
+    },
+    {
+        "key": "F4",
+        "command": "toggle",
+        // "when": "editorTextFocus",
+        "args": {
+            "id": "linenumbers",
+            "value": [
+                {
+                    "editor.lineNumbers": "on"
+                },
+                {
+                    "editor.lineNumbers": "relative"
+                }
+            ]
+        }
+    },
+    //Similar with VIM
+    {
+        "key": "tab",
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "shift+tab",
+        "command": "selectPrevSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+k j",
+        "command": "workbench.action.focusLeftGroup"
+    },
+    {
+        "key": "ctrl+k l",
+        "command": "workbench.action.focusRightGroup"
+    },
+    {
+        "key": "ctrl+k k",
+        "command": "workbench.view.explorer"
+    }
+]
