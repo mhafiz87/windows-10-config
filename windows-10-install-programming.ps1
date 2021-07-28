@@ -179,19 +179,35 @@ else {
 # Install-Software -path $programmingFolderPath -filename "*arduino*.*"
 
 Write-Host "Installing cmake"
-Install-Software -path $programmingFolderPath -filename "*cmake*.*" -extract $true -extract_location "$env:localappdata\Programs"
-Rename-Item (Get-ChildItem $env:localappdata\Programs -Filter *cmake* | % { $_.FullName }) CMake
-Add-Env-Variable -envName path -userType machine -newEnv "$env:localappdata\Programs\CMake\bin"
+# Installing from zip file
+$path_wget_file = $programmingFolderPath + "\*cmake*.*"
+if (Test-Path -Path $path_wget_file -PathType Leaf) {
+    Write-Output "cmake installer exist."
+    Install-Software -path $programmingFolderPath -filename "*cmake*.*" -extract $true -extract_location "$env:localappdata\programs"
+    Add-Env-Variable -envName path -userType machine -newEnv "$env:localappdata\Programs\CMake\bin"
+}
+else {
+    Write-Output "cmake installer doesn't exist."
+}
 
 Write-Host "Installing git"
-Install-Software -path $programmingFolderPath -filename "*git*.*" -argumentList "/VERYSILENT /NORESTART"
+Install-Software -path $programmingFolderPath -filename "*git*.*" -argumentList "/VERYSILENT /NORESTART /DIR=""$env:localappdata\programs\Git"""
 
 Write-Host "Installing MingW"
-Install-Software -path $programmingFolderPath -filename "*mingw*.*"
-Add-Env-Variable -envName path -userType machine -newEnv "C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin"
+# Install using autohotkey
+$path_wget_file = $programmingFolderPath + "\*mingw*.*"
+if (Test-Path -Path $path_wget_file -PathType Leaf) {
+    Write-Output "mingw installer exist."
+    Install-Software -path $programmingFolderPath -filename "*mingw*.*"
+    Add-Env-Variable -envName path -userType machine -newEnv "C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin"
+}
+else {
+    Write-Output "mingw installer doesn't exist."
+}
 
-Write-Host "Installing Perforce"
-Install-Software -path $programmingFolderPath -filename "*p4v*.*" -argumentList "/s REMOVEAPPS=P4V,P4ADMIN,P4"
+# Write-Host "Installing Perforce"
+# Using VSCode for merge conflict
+# Install-Software -path $programmingFolderPath -filename "*p4v*.*" -argumentList "/s REMOVEAPPS=P4V,P4ADMIN,P4"
 
 Write-Host "Installing Python 3"
 Install-Software -path $programmingFolderPath -filename "*python-3*.*" -argumentList "/quiet PrependPath=1 AssociateFiles=1 Include_symbols=1 Include_debug=1"
