@@ -171,7 +171,7 @@ if (Test-Path -Path $path_wget_file -PathType Leaf) {
     Import-Certificate -FilePath AdafruitCircuitPlayground.cer -CertStoreLocation Cert:\LocalMachine\TrustedPublisher
     Import-Certificate -FilePath arduino.cer -CertStoreLocation Cert:\LocalMachine\TrustedPublisher
     Import-Certificate -FilePath linino-boards_amd64.cer -CertStoreLocation Cert:\LocalMachine\TrustedPublisher
-    Install-Software -path $programmingFolderPath -filename "*arduino*.*" -argumentList "/S"
+    Install-Software -path $programmingFolderPath -filename "*arduino*.exe" -argumentList "/S"
 }
 else {
     Write-Output "arduino installer doesn't exist."

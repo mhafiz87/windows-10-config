@@ -171,7 +171,7 @@ if (Test-Path -Path $path_wget_file -PathType Leaf) {
     Import-Certificate -FilePath AdafruitCircuitPlayground.cer -CertStoreLocation Cert:\LocalMachine\TrustedPublisher
     Import-Certificate -FilePath arduino.cer -CertStoreLocation Cert:\LocalMachine\TrustedPublisher
     Import-Certificate -FilePath linino-boards_amd64.cer -CertStoreLocation Cert:\LocalMachine\TrustedPublisher
-    Install-Software -path $programmingFolderPath -filename "*arduino*.*" -argumentList "/S /D=$env:localappdata\Programs\Arduino"
+    Install-Software -path $programmingFolderPath -filename "*arduino*.exe" -argumentList "/S /D=$env:localappdata\Programs\Arduino"
 }
 else {
     Write-Output "arduino installer doesn't exist."
@@ -179,8 +179,8 @@ else {
 # Install-Software -path $programmingFolderPath -filename "*arduino*.*"
 
 Write-Host "Installing cmake"
-Install-Software -path $programmingFolderPath -filename "*cmake*.*"
-Add-Env-Variable -envName path -userType machine -newEnv "C:\Program Files\CMake\bin"
+Install-Software -path $programmingFolderPath -filename "*cmake*.*" -extract $true -extract_location "$env:localappdata\Programs\CMake"
+Add-Env-Variable -envName path -userType machine -newEnv "$env:localappdata\Programs\CMake\bin"
 
 Write-Host "Installing git"
 Install-Software -path $programmingFolderPath -filename "*git*.*" -argumentList "/VERYSILENT /NORESTART"
