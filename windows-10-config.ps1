@@ -70,7 +70,7 @@ function Install-Software {
             if ($argumentList -and ($file_installer[0] -like "*.msi")) {
                 $argumentListFlag["ArgumentList"] = "/i " + """$($file_installer[0])""" + $argumentList + " /qn" 
             }
-            elseif($file_installer[0] -like "*.msi"){
+            elseif ($file_installer[0] -like "*.msi") {
                 $argumentListFlag["ArgumentList"] = "/i " + """$($file_installer[0])""" + " /qn"
             }
             elseif ($argumentList) {
@@ -496,6 +496,9 @@ download_windows_msixbundle_from_github -url microsoft/winget-cli -outputFilenam
 # Download Windows Terminal
 Write-Output "Downloading Windows Terminal"
 download_windows_msixbundle_from_github -url microsoft/terminal -outputFilename Microsoft.WindowsTerminal_version_8wekyb3d8bbwe.msixbundle
+# Download Fira Code Nerd Font
+Write-Output "Fira Code Nerd Font"
+download_windows_msixbundle_from_github -url ryanoasis/nerd-fonts -outputFilename FiraCode.zip
 
 # Download Windows10Debloater to Desktop
 Write-Output "Downloading Windows 10 Debloater"
