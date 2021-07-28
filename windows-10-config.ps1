@@ -281,7 +281,7 @@ if (-not (test-path hklm:\SYSTEM\CurrentControlSet\Control\FileSystem\LongPathsE
 set-itemproperty -path "hklm:\SYSTEM\CurrentControlSet\Control\FileSystem" -name "LongPathsEnabled" -type dword -value 1
 
 
-Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -SkipPublisherCheck
+Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
 Install-Module -Name 7Zip4Powershell -Force -SkipPublisherCheck
 Install-Module posh-git -Scope CurrentUser -Force -SkipPublisherCheck
 Install-Module oh-my-posh -Scope CurrentUser -Force -SkipPublisherCheck
