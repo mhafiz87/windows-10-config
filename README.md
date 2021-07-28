@@ -37,6 +37,7 @@ Invoke-WebRequest -Uri "https://github.com/Sycnex/Windows10Debloater/archive/mas
 - [x] ~~Change autohotkey silent installation arguments (INTERNAL branch)~~
 - [x] ~~Add Iruin Webcam install script in office.~~
 - [x] ~~Add vscode-settings.json~~
+- [ ] MingW ahk script need to be rewritten
 - [ ] Add new branch - INTERNAL_USER
 - [ ] Add new branch - INTERNAL_SYSTEM
 - [ ] Add delete branch - INTERNAL

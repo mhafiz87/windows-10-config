@@ -70,6 +70,9 @@ function Install-Software {
             if ($argumentList -and ($file_installer[0] -like "*.msi")) {
                 $argumentListFlag["ArgumentList"] = "/i " + """$($file_installer[0])""" + $argumentList + " /qn" 
             }
+            elseif($file_installer[0] -like "*.msi"){
+                $argumentListFlag["ArgumentList"] = "/i " + """$($file_installer[0])""" + " /qn"
+            }
             elseif ($argumentList) {
                 $argumentListFlag["ArgumentList"] = $argumentList
             }

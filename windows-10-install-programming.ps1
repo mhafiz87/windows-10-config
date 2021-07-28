@@ -70,6 +70,9 @@ function Install-Software {
             if ($argumentList -and ($file_installer[0] -like "*.msi")) {
                 $argumentListFlag["ArgumentList"] = "/i " + """$($file_installer[0])""" + $argumentList + " /qn" 
             }
+            elseif($file_installer[0] -like "*.msi"){
+                $argumentListFlag["ArgumentList"] = "/i " + """$($file_installer[0])""" + " /qn"
+            }
             elseif ($argumentList) {
                 $argumentListFlag["ArgumentList"] = $argumentList
             }
@@ -213,13 +216,13 @@ Write-Host "Installing Python 3"
 Install-Software -path $programmingFolderPath -filename "*python-3*.*" -argumentList "/quiet PrependPath=1 AssociateFiles=1 Include_symbols=1 Include_debug=1"
 
 Write-Host "Installing Visual Studio Code"
-Install-Software -path $programmingFolderPath -filename "*VSCodeUser*.*" -argumentList "/VERYSILENT /NORESTART /MERGETASKS=!runcode"
+Install-Software -path $programmingFolderPath -filename "*VSCodeUser*.*" -argumentList "/VERYSILENT /NORESTART /MERGETASKS=!runcode,addcontextmenufiles,addcontextmenufolders,associatewithfiles"
 
 Write-Host "Installing VMWare Player"
 Install-Software -path $programmingFolderPath -filename "*vmware*.*"
 
 Write-Host "Installing Zeal"
-Install-Software -path $programmingFolderPath -filename "*zeal*.*" -argumentList "/S"
+Install-Software -path $programmingFolderPath -filename "*zeal*.*"
 
 Write-Host "Installing ctags"
 Install-Software -path $programmingFolderPath -filename "*ctags*.*" -extract $true -extract_location "C:\"

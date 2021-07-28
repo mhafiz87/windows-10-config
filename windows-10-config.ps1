@@ -67,7 +67,13 @@ function Install-Software {
         }
         else {
             $argumentListFlag = @{}
-            if ($argumentList) {
+            if ($argumentList -and ($file_installer[0] -like "*.msi")) {
+                $argumentListFlag["ArgumentList"] = "/i " + """$($file_installer[0])""" + $argumentList + " /qn" 
+            }
+            elseif($file_installer[0] -like "*.msi"){
+                $argumentListFlag["ArgumentList"] = "/i " + """$($file_installer[0])""" + " /qn"
+            }
+            elseif ($argumentList) {
                 $argumentListFlag["ArgumentList"] = $argumentList
             }
             Write-Host "Installation file: "$file_installer[0]
@@ -78,7 +84,7 @@ function Install-Software {
                 }
                 elseif ($file_installer[0] -like "*.msi") {
                     Write-Output "Found .msi file"
-                    Start-Process MsiExec.exe -ArgumentList "/i", $file_installer[0], "/qn" -wait
+                    Start-Process MsiExec.exe -wait @argumentListFlag
                 }
                 elseif ($file_installer[0] -like "*.ahk") {
                     Write-Output "Found .ahk file"
