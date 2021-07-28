@@ -254,7 +254,7 @@ Write-Host "Installing Unifying"
 # Cannot Install To Local User.
 Install-Software -path $officeFolderPath -filename "*unifying*.*"
 
-Write-Host "Installing wget via copying to C:\"
+Write-Host "Installing wget via copying to $env:localappdata\Programs\wget"
 $path_wget_file = $officeFolderPath + "\wget.exe"
 if (Test-Path -Path $path_wget_file -PathType Leaf) {
     Write-Output "wget.exe file exist."

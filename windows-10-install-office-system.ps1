@@ -205,9 +205,11 @@ Install-Software -path $officeFolderPath -filename "*FileZilla*.*" -argumentList
 # Install-Software -path $officeFolderPath -filename "*hwi*.*"
 
 Write-Host "Installing Angry Ip Scanner"
+# Install using AutoHotkey
 Install-Software -path $officeFolderPath -filename "*ipscan*.*"
 
 Write-Host "Installing ISOWorkshop"
+# Install using AutoHotkey
 Install-Software -path $officeFolderPath -filename "*isoworkshop*.*"
 
 Write-Host "Installing Logitech Setpoint"
@@ -233,7 +235,6 @@ $Shortcut.Save()
 # New-Item -Path "$env:appdata\Microsoft\Windows\Start Menu\Programs\Tor.exe" -ItemType SymbolicLink -Value "$env:localappdata\Programs\Tor Browser\Browser\firefox.exe"
 
 Write-Host "Installing VLC"
-# Install using AutoHotkey
 Install-Software -path $officeFolderPath -filename "*vlc*.*"
 
 # Write-Host "Installing Win10PCap"
@@ -256,12 +257,12 @@ Write-Host "Installing wget via copying to C:\"
 $path_wget_file = $officeFolderPath + "\wget.exe"
 if (Test-Path -Path $path_wget_file -PathType Leaf) {
     Write-Output "wget.exe file exist."
-    if (-not (Test-Path -Path "$env:localappdata\Programs\wget" -PathType Container)) {
+    if (-not (Test-Path -Path "C:\wget" -PathType Container)) {
         Write-Host "Folder doesn't exist, create folder wget"
-        New-Item -ItemType Directory -Path "$env:localappdata\Programs" -Name "wget"
+        New-Item -ItemType Directory -Path "C:\" -Name "wget"
     }
-    Copy-Item -Path $officeFolderPath"\wget.exe" -Destination "$env:localappdata\Programs\wget"
-    Add-Env-Variable -envName path -userType machine -newEnv "$env:localappdata\Programs\wget"  
+    Copy-Item -Path $officeFolderPath"\wget.exe" -Destination "C:\wget"
+    Add-Env-Variable -envName path -userType machine -newEnv "C:\wget"  
 }
 else {
     Write-Output "wget.exe file doesn't exist."
