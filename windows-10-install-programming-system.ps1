@@ -179,7 +179,7 @@ else {
 # Install-Software -path $programmingFolderPath -filename "*arduino*.*"
 
 Write-Host "Installing cmake"
-Install-Software -path $programmingFolderPath -filename "*cmake*.*"
+Install-Software -path $programmingFolderPath -filename "*cmake*.msi"
 Add-Env-Variable -envName path -userType machine -newEnv "C:\Program Files\CMake\bin"
 
 Write-Host "Installing git"
