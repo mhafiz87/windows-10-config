@@ -179,7 +179,7 @@ else {
 # Install-Software -path $programmingFolderPath -filename "*arduino*.*"
 
 Write-Host "Installing cmake"
-Install-Software -path $programmingFolderPath -filename "*cmake*.zip" -extract $true -extract_location "$env:localappdata\Programs"
+Install-Software -path $programmingFolderPath -filename "*cmake*.*" -extract $true -extract_location "$env:localappdata\Programs"
 Rename-Item (Get-ChildItem $env:localappdata\Programs -Filter *cmake* | % { $_.FullName }) CMake
 Add-Env-Variable -envName path -userType machine -newEnv "$env:localappdata\Programs\CMake\bin"
 
