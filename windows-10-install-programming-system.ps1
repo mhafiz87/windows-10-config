@@ -198,7 +198,7 @@ $path_wget_file = $programmingFolderPath + "\*mingw*.*"
 if (Test-Path -Path $path_wget_file -PathType Leaf) {
     Write-Output "mingw installer exist."
     Install-Software -path $programmingFolderPath -filename "*mingw*.*"
-    Add-Env-Variable -envName path -userType machine -newEnv "C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin"
+    Add-Env-Variable -envName path -userType machine -newEnv "C:\Program Files\mingw64\bin"
 }
 else {
     Write-Output "mingw installer doesn't exist."
