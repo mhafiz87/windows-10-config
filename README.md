@@ -41,9 +41,10 @@ Invoke-WebRequest -Uri "https://github.com/Sycnex/Windows10Debloater/archive/mas
 - [x] ~~Rewrite autohotkey for ISOWorkshop for both user and system~~
 - [x] ~~Rewrite autohotkey for Iriun Webcam for both user and system~~
 - [ ] MingW ahk script need to be rewritten
-- [ ] Change INTERNAL branch windows-10-config.ps1 with latest office installation scripts.
-- [ ] Change if possible programming software installation path to localappdata.
+- [x] ~~Change if possible programming software installation path to localappdata.~~
 - [ ] Script to extract vscode extensions.
   - [ ] Test-Path exist or not.
 - [ ] Script to extract zeal docset.
   - [ ] Test-Path exist or not.
+- [ ] windows-10-python-setup
+- [ ] windows-10-git-config

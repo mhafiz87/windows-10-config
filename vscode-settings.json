@@ -31,14 +31,17 @@
         "**/.DS_Store": true
     },
     "liveServer.settings.donotShowInfoMsg": true,
+    "markdownlint.config": {
+        "MD033": false
+    },
     "prettier.tabWidth": 4,
     "python.languageServer": "Pylance",
     "python.formatting.blackArgs": [
         "--line-length=120"
     ],
-    "python.formatting.blackPath": "~/AppData/Local/Programs/Python/Python39/Scripts/black.exe",
+    "python.formatting.blackPath": "${env:LOCALAPPDATA}/Programs/Python/Python39/Scripts/black.exe",
     "python.formatting.provider": "black",
-    "python.linting.flake8Path": "~/AppData/Local/Programs/Python/Python39/Scripts/flake8.exe",
+    "python.linting.flake8Path": "${env:LOCALAPPDATA}/Programs/Python/Python39/Scripts/flake8.exe",
     "python.linting.flake8Args": [
         "--ignore=E501"
     ],
@@ -94,7 +97,7 @@
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook"
     },
-    "workbench.iconTheme": "material-icon-theme",
+    "workbench.iconTheme": "vscode-icons",
     "workbench.list.horizontalScrolling": true,
     "workbench.startupEditor": "none",
     "[markdown]": {
@@ -132,7 +135,7 @@
             "commands": [
                 ":nohl"
             ]
-        }
+        },
     ],
     "vim.handleKeys": {
         "<C-a>": false,
@@ -142,5 +145,7 @@
     "notebook.cellToolbarLocation": {
         "default": "right",
         "jupyter-notebook": "left"
-    }
+    },
+    "workbench.editor.enablePreview": false,
+    "sourcery.token": "user_AmrM0pIFJa6n4_3zbAYqBoPuiMkykg4GF_5likNB_eeUdUYLHEplQ8awMJQ"
 }
