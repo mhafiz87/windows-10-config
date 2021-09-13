@@ -37,10 +37,12 @@
     "prettier.tabWidth": 4,
     "python.languageServer": "Pylance",
     "python.formatting.blackArgs": [
-        "--line-length=120"
+        "--line-length=140"
     ],
     "python.formatting.blackPath": "${env:LOCALAPPDATA}/Programs/Python/Python39/Scripts/black.exe",
     "python.formatting.provider": "black",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
     "python.linting.flake8Path": "${env:LOCALAPPDATA}/Programs/Python/Python39/Scripts/flake8.exe",
     "python.linting.flake8Args": [
         "--ignore=E501"
@@ -147,5 +149,5 @@
         "jupyter-notebook": "left"
     },
     "workbench.editor.enablePreview": false,
-    "sourcery.token": "user_AmrM0pIFJa6n4_3zbAYqBoPuiMkykg4GF_5likNB_eeUdUYLHEplQ8awMJQ"
+    "sourcery.token": "user_AmrM0pIFJa6n4_3zbAYqBoPuiMkykg4GF_5likNB_eeUdUYLHEplQ8awMJQ",
 }
