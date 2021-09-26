@@ -3,7 +3,10 @@ param(
     [Parameter(Mandatory = $true)][string]$programmingFolderPath
 )
 
-function download_windows_msixbundle_from_github {
+function download_github_repo_latest_release {
+    <#
+    
+    #>
     param(
         [string]$url,
         [string]$outputFilename
@@ -494,13 +497,13 @@ Set-PSReadLineKeyHandler -Key "Alt+'" `
 # Download Windows 10 App Package
 # Download WinGet
 Write-Output "Downloading WinGet"
-download_windows_msixbundle_from_github -url microsoft/winget-cli -outputFilename Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
+download_github_repo_latest_release -url microsoft/winget-cli -outputFilename Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
 # Download Windows Terminal
 Write-Output "Downloading Windows Terminal"
-download_windows_msixbundle_from_github -url microsoft/terminal -outputFilename Microsoft.WindowsTerminal_version_8wekyb3d8bbwe.msixbundle
+download_github_repo_latest_release -url microsoft/terminal -outputFilename Microsoft.WindowsTerminal_version_8wekyb3d8bbwe.msixbundle
 # Download Fira Code Nerd Font
 Write-Output "Fira Code Nerd Font"
-download_windows_msixbundle_from_github -url ryanoasis/nerd-fonts -outputFilename FiraCode.zip
+download_github_repo_latest_release -url ryanoasis/nerd-fonts -outputFilename FiraCode.zip
 
 # Download Windows10Debloater to Desktop
 Write-Output "Downloading Windows 10 Debloater"
