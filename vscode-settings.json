@@ -107,6 +107,7 @@
             "text": "FIXME:"
         }
     ],
+    "typescript.suggest.paths": false,
     "window.autoDetectColorScheme": true,
     "window.zoomLevel": 0,
     "workbench.colorTheme": "Default Dark+",
@@ -144,6 +145,43 @@
                 ":nohl"
             ]
         },
+        {
+            "before": [
+                "<leader>",
+                "y"
+            ],
+            "after": [
+                "\"",
+                "a",
+                "y",
+                "<enter>"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "p"
+            ],
+            "after": [
+                "\"",
+                "a",
+                "p"
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "y"
+            ],
+            "after": [
+                "\"",
+                "a",
+                "y",
+                "<enter>"
+            ]
+        }
     ],
     "vim.handleKeys": {
         "<C-a>": false,
