@@ -5,6 +5,9 @@
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
+    "autoDocstring.docstringFormat": "google",
+    "autoDocstring.startOnNewLine": false,
+    "autoDocstring.customTemplatePath": "D:\\Work\\Python\\Testproject\\apple_automation_two\\orbital.mustache",
     "code-runner.clearPreviousOutput": true,
     "code-runner.executorMap": {
         "python": "$pythonPath -u $fullFileName"
@@ -37,6 +40,12 @@
         "**/CVS": true,
         "**/.DS_Store": true
     },
+    "gitlens.mode.active": "review",
+    "gotoNextPreviousMember.symbolKinds": [
+        "class",
+        "function",
+        "method",
+    ],
     "jupyter.interactiveWindowMode": "perFile",
     "jupyter.askForKernelRestart": false,
     "liveServer.settings.donotShowInfoMsg": true,
@@ -50,7 +59,7 @@
     "prettier.tabWidth": 4,
     "python.languageServer": "Pylance",
     "python.formatting.blackArgs": [
-        "--line-length=140"
+        "--line-length=120"
     ],
     "python.formatting.blackPath": "${env:LOCALAPPDATA}/Programs/Python/Python39/Scripts/black.exe",
     "python.formatting.provider": "black",
@@ -58,7 +67,7 @@
     "python.linting.flake8Enabled": true,
     "python.linting.flake8Path": "${env:LOCALAPPDATA}/Programs/Python/Python39/Scripts/flake8.exe",
     "python.linting.flake8Args": [
-        "--ignore=E501"
+        "--ignore=E501,W503"
     ],
     "python.showStartPage": false,
     "python.venvPath": "${env:USERPROFILE}/.virtualenvs",
@@ -188,5 +197,5 @@
         "<C-f>": false,
         "<C-w>": false
     },
-    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreview": true,
 }
