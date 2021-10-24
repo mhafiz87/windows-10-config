@@ -182,7 +182,7 @@ reg import "registryshortcutsw1064bit\search_details_2.reg"
 # Disable internet explorer prompt 
 set-itemproperty -path "hklm:\software\microsoft\internet explorer\main" -name "disablefirstruncustomize" -value 2
 
-$password_flag = read-host "do you want to enable automatic login? [y]es or [n}o"
+$password_flag = read-host "do you want to enable automatic login? [y]es or [n]o"
 if ($password_flag -eq "y") {
     write-output "automatic login enable"
     write-output "please input password:"
