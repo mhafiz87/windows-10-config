@@ -29,6 +29,19 @@
         "command": "workbench.action.previousEditorInGroup"
     },
     {
+        "key": "ctrl+pagedown",
+        "command": "gotoNextPreviousMember.nextMember"
+    },
+    {
+        "key": "ctrl+pageup",
+        "command": "gotoNextPreviousMember.previousMember"
+    },
+    // Path Intellisense
+    {
+        "key": ".",
+        "command": ""
+    },
+    {
         "key": "F2",
         "command": "toggle",
         // "when": "editorTextFocus",
