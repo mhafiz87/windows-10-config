@@ -21,6 +21,7 @@
     "editor.fontLigatures": true,
     "editor.fontSize": 12,
     "editor.formatOnSave": true,
+    "editor.guides.bracketPairs": "active",
     "editor.insertSpaces": true,
     "editor.minimap.enabled": true,
     "editor.lineNumbers": "relative",
