@@ -36,8 +36,8 @@ Invoke-WebRequest -Uri "https://github.com/Sycnex/Windows10Debloater/archive/mas
 
 ### **Multiple versions**
 
-- Change each python.exe version into python\*.\*.exe. Example for version 3.7; python3.7.exe
-- Edit registry at ***Computer\HKEY_CURRENT_USER\SOFTWARE\Python\PythonCore\\*.\*\InstallPath***
+- Change each python.exe version into python\*.\*.exe. Example for version 3.7; python.exe -> python3.7.exe
+- Edit registry at ***Computer\HKEY_CURRENT_USER\SOFTWARE\Python\PythonCore\\\*.\*\InstallPath***
 
 ```powershell
 python37 -m pip install *package_name*
