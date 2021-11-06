@@ -36,6 +36,8 @@ Invoke-WebRequest -Uri "https://github.com/Sycnex/Windows10Debloater/archive/mas
 
 ### **Multiple versions**
 
+- Edit registry at ***Computer\HKEY_CURRENT_USER\SOFTWARE\Python\PythonCore\*.*\InstallPath***
+
 ```powershell
 python37 -m pip install *package_name*
 python39 -m pip install *package_name*
@@ -49,8 +51,6 @@ python310 -m pip install *package_name*
 ```cmd
 setx PATH "%PATH%;%USERPROFILE%\.virtualenvs"
 ```
-
-  - Edit registry at ***Computer\HKEY_CURRENT_USER\SOFTWARE\Python\PythonCore\*.*\InstallPath***
 
 ```powershell
 python37 -m pip install virtualenvwrapper-win
