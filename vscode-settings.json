@@ -21,7 +21,6 @@
     "editor.fontLigatures": true,
     "editor.fontSize": 12,
     "editor.formatOnSave": true,
-    "editor.guides.bracketPairs": "active",
     "editor.insertSpaces": true,
     "editor.minimap.enabled": true,
     "editor.lineNumbers": "relative",
@@ -35,7 +34,7 @@
         "*.ino": "cpp"
     },
     "files.exclude": {
-        "**/.git": false,
+        "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,
         "**/CVS": true,
@@ -73,7 +72,7 @@
     "python.showStartPage": false,
     "python.venvPath": "${env:USERPROFILE}/.virtualenvs",
     "sourcery.token": "user_AmrM0pIFJa6n4_3zbAYqBoPuiMkykg4GF_5likNB_eeUdUYLHEplQ8awMJQ",
-    "telemetry.enableTelemetry": false,
+    "telemetry.telemetryLevel": "off",
     "terminal.integrated.cwd": "${fileDirname}",
     "terminal.integrated.fontFamily": "'FiraCode NF','Cascadia Code', Consolas, 'Courier New', monospace",
     "terminal.integrated.fontSize": 11,
@@ -198,5 +197,6 @@
         "<C-f>": false,
         "<C-w>": false
     },
+    "vsicons.dontShowNewVersionMessage": true,
     "workbench.editor.enablePreview": true,
 }
