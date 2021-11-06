@@ -32,6 +32,31 @@ Set-ExecutionPolicy -ExecutionPolicy ByPass -Scope CurrentUser -Force
 Invoke-WebRequest -Uri "https://github.com/Sycnex/Windows10Debloater/archive/master.zip" -OutFile "$env:USERPROFILE\Desktop\Windows10Debloater.zip"
 ```
 
+## **Python**
+
+### **Multiple versions**
+
+```powershell
+python37 -m pip install *package_name*
+python39 -m pip install *package_name*
+python310 -m pip install *package_name*
+```
+
+- Virtual Environment
+  - Add **WORKON_HOME** in windows environment variables.
+  - Using CMD:
+
+```cmd
+setx PATH "%PATH%;%USERPROFILE%\.virtualenvs"
+```
+
+  - Edit registry at ***Computer\HKEY_CURRENT_USER\SOFTWARE\Python\PythonCore\*.*\InstallPath***
+
+```powershell
+python37 -m pip install virtualenvwrapper-win
+mkvirtualenv -p python37 *venv_name*
+```
+
 ## TODO LIST
 
 - [x] ~~Change autohotkey silent installation arguments (INTERNAL branch)~~
