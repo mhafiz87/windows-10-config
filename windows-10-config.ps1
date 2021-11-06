@@ -321,6 +321,30 @@ Function touch
     }
 }
 
+Function Add-Env-Variable {
+    param(
+        [Parameter(Mandatory = $true)][string]$envName,
+        [Parameter(Mandatory = $true)][ValidateSet("user", "machine")][string]$userType,
+        [Parameter(Mandatory = $true)][string]$newEnv
+    )
+    if ($userType -eq "user") {
+        if ([System.Environment]::GetEnvironmentVariable($envname, [System.EnvironmentVariableTarget]::User).Length -eq 0) {
+            [System.Environment]::SetEnvironmentVariable($envname, $newEnv, [System.EnvironmentVariableTarget]::User)
+        }
+        else {
+            [System.Environment]::SetEnvironmentVariable($envName, [System.Environment]::GetEnvironmentVariable($envName, [System.EnvironmentVariableTarget]::User) + ";" + $newEnv, [System.EnvironmentVariableTarget]::User)
+        }
+    }
+    elseif ($userType -eq "machine") {
+        if ([System.Environment]::GetEnvironmentVariable($envname, [System.EnvironmentVariableTarget]::Machine).Length -eq 0) {
+            [System.Environment]::SetEnvironmentVariable($envname, $newEnv, [System.EnvironmentVariableTarget]::Machine)
+        }
+        else {
+            [System.Environment]::SetEnvironmentVariable($envName, [System.Environment]::GetEnvironmentVariable($envName, [System.EnvironmentVariableTarget]::Machine) + ";" + $newEnv, [System.EnvironmentVariableTarget]::Machine)
+        }
+    }
+}
+
 Import-Module posh-git
 Import-Module oh-my-posh
 Import-Module PSReadLine
