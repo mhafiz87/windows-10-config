@@ -7,7 +7,7 @@
     },
     "autoDocstring.docstringFormat": "google",
     "autoDocstring.startOnNewLine": false,
-    "autoDocstring.customTemplatePath": "D:\\Work\\Python\\Testproject\\apple_automation_two\\orbital.mustache",
+    "autoDocstring.customTemplatePath": "${env:USERPROFILE}\\.vscode\\orbital.mustache",
     "code-runner.clearPreviousOutput": true,
     "code-runner.executorMap": {
         "python": "$pythonPath -u $fullFileName"
