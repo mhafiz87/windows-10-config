@@ -36,15 +36,6 @@ Invoke-WebRequest -Uri "https://github.com/Sycnex/Windows10Debloater/archive/mas
 
 ### **Multiple versions**
 
-- Change each python.exe version into python\*.\*.exe. Example for version 3.7; python.exe -> python3.7.exe
-- Edit registry at ***Computer\HKEY_CURRENT_USER\SOFTWARE\Python\PythonCore\\\*.\*\InstallPath***
-
-```powershell
-python37 -m pip install *package_name*
-python39 -m pip install *package_name*
-python310 -m pip install *package_name*
-```
-
 - Virtual Environment
   - Add **WORKON_HOME** in windows environment variables.
   - Using CMD:
@@ -54,7 +45,7 @@ setx PATH "%PATH%;%USERPROFILE%\.virtualenvs"
 ```
 
 ```powershell
-python37 -m pip install virtualenvwrapper-win
+python -m pip install virtualenvwrapper-win
 mkvirtualenv -p python37 *venv_name*
 ```
 
