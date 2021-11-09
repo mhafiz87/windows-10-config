@@ -321,6 +321,10 @@ Function touch
     }
 }
 
+Function workon ($env) {
+        & $env:WORKON_HOME\$env\Scripts\activate.ps1
+}
+
 Function Add-Env-Variable {
     param(
         [Parameter(Mandatory = $true)][string]$envName,
