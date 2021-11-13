@@ -6,10 +6,7 @@
     // Add custom keybindings to this array.
     // To unbind a key combination from your defaults.json, set the command to "unbound".
     // To learn more about keybindings, visit https://aka.ms/terminal-keybindings
-    "keybindings": [
-        // Copy and paste are bound to Ctrl+Shift+C and Ctrl+Shift+V in your defaults.json.
-        // These two lines additionally bind them to Ctrl+C and Ctrl+V.
-        // To learn more about selection, visit https://aka.ms/terminal-selection
+    "actions": [
         {
             "command": {
                 "action": "copy",
@@ -18,18 +15,13 @@
             "keys": "ctrl+c"
         },
         {
-            "command": "paste",
-            "keys": "ctrl+v"
-        },
-        // Press Ctrl+Shift+F to open the search box
-        {
             "command": "find",
             "keys": "ctrl+shift+f"
         },
-        // Press Alt+Shift+D to open a new pane.
-        // - "split": "auto" makes this pane open in the direction that provides the most surface area.
-        // - "splitMode": "duplicate" makes the new pane use the focused pane's profile.
-        // To learn more about panes, visit https://aka.ms/terminal-panes
+        {
+            "command": "paste",
+            "keys": "ctrl+v"
+        },
         {
             "command": {
                 "action": "splitPane",
@@ -47,12 +39,14 @@
             "keys": "alt+f4"
         },
         {
-            "command": "closeTab",
-            "keys": "ctrl+shift+w"
-        },
-        {
             "command": "toggleFocusMode",
             "keys": "f1"
+        },
+        {
+            "command": {
+                "action": "closeTab"
+            },
+            "keys": "ctrl+shift+w"
         }
     ],
     "profiles": {
@@ -70,7 +64,8 @@
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
                 "name": "Windows PowerShell",
-                "startingDirectory": "%userprofile%"
+                "startingDirectory": ".",
+                // "startingDirectory": "%userprofile%"
             },
             {
                 "colorScheme": "VS Code",
@@ -78,7 +73,8 @@
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
                 "name": "Command Prompt",
-                "startingDirectory": "%userprofile%"
+                "startingDirectory": ".",
+                // "startingDirectory": "%userprofile%"
             },
             {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
@@ -93,7 +89,8 @@
                 "icon": "D:\\Software\\icon\\ubuntu.png",
                 "name": "Ubuntu-20.04",
                 "source": "Windows.Terminal.Wsl",
-                "startingDirectory": "%userprofile%"
+                "startingDirectory": ".",
+                // "startingDirectory": "%userprofile%"
             },
             {
                 "closeOnExit": "always",
@@ -102,7 +99,8 @@
                 "guid": "{00000000-0000-0000-ba54-000000000002}",
                 "icon": "D:\\Software\\icon\\git.png",
                 "name": "Git Bash",
-                "startingDirectory": "%userprofile%"
+                "startingDirectory": ".",
+                // "startingDirectory": "%userprofile%"
             }
         ]
     },
