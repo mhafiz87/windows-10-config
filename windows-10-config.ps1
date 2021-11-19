@@ -304,28 +304,83 @@ Add-Content $HOME\documents\windowspowershell\microsoft.powershell_profile.ps1 @
 using namespace System.Management.Automation
 using namespace System.Management.Automation.Language
 
-Function touch
-{
-    $file = $args[0]
-    if($file -eq $null) {
+Function touch {
+    <#
+        .SYNOPSIS
+        Create file similar to linux touch command.
+        .DESCRIPTION
+        Create file similar to linux touch command. If the file exist, update it's last modified.
+        .PARAMETER filename
+        The name of the file to be created.
+        .EXAMPLE    
+        To create a file name "test.txt"
+        PS> touch -filename test.txt
+        .EXAMPLE    
+        PS> touch -filename README.md
+        To create a file name "README.md"
+        .LINK
+        https://superuser.com/questions/502374/equivalent-of-linux-touch-to-create-an-empty-file-with-powershell
+    #>
+    param(
+        [Parameter(Mandatory = $true)][string]$filename
+    )
+    if ($filename -eq $null) {
         throw "No filename supplied"
     }
 
-    if(Test-Path $file)
-    {
+    if (Test-Path $file) {
         (Get-ChildItem $file).LastWriteTime = Get-Date
     }
-    else
-    {
+    else {
         New-Item -Path . -ItemType File -Name $file
     }
 }
 
-Function workon ($env) {
-        & $env:WORKON_HOME\$env\Scripts\activate.ps1
+Function workon {
+    <#
+        .SYNOPSIS
+        Using "workon" to activate python virtual environment in powershell.
+        .DESCRIPTION
+        Using "workon" to activate python virtual environment in powershell. "WORKON_HOME" environment variable must be set to use this function.
+        .PARAMETER envName
+        The python virtual environment name to activate.
+        .EXAMPLE
+        PS> workon orbital
+        To activate virtual environment name "orbital"
+        .EXAMPLE
+        PS> workon machine_vision
+        To activate virtual environment name "machine_vision"
+        .LINK
+        https://stackoverflow.com/questions/38944525/workon-command-doesnt-work-in-windows-powershell-to-activate-virtualenv
+    #>
+    param(
+        [Parameter(Mandatory = $true)][string]$envName
+    )
+    & $env:WORKON_HOME\$envName\Scripts\activate.ps1
 }
 
 Function Add-Env-Variable {
+    <#
+        .SYNOPSIS
+        Add new Windows 10 environment variable.
+        .DESCRIPTION
+        Add new Windows 10 environment variable. If environment already exist, will append. Else will create new.
+        .PARAMETER envName
+        The name of the environment variable.
+        .PARAMETER userType
+        To add environment variable to user or system(machine).
+        .PARAMETER newEnv
+        The path of the environment variable.
+        .EXAMPLE
+        PS> Add-Env-Variable -envName path -userType machine -newEnv "C:\swig"
+        To append "C:\swig" to system "path" environment variable.
+        .EXAMPLE
+        PS> Add-Env-Variable -envName path -userType user -newEnv "C:\vlc"
+        To append "C:\vlc" to user "path" environment variable.
+        .EXAMPLE
+        PS> Add-Env-Variable -envName "WORKON_HOME" -userType user -newEnv "$env:userprofile:\.virtualenvs"
+        To create "WORKON_HOME" environment variable.
+    #>
     param(
         [Parameter(Mandatory = $true)][string]$envName,
         [Parameter(Mandatory = $true)][ValidateSet("user", "machine")][string]$userType,
@@ -362,10 +417,10 @@ Set-PSReadlineKeyHandler -Key Ctrl+Shift+Tab -Function TabCompletePrevious
 Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 
-Set-PSReadLineKeyHandler -Key 'Ctrl+"',"Ctrl+'" `
-                        -BriefDescription SmartInsertQuote `
-                        -LongDescription "Insert paired quotes if not already on a quote" `
-                        -ScriptBlock {
+Set-PSReadLineKeyHandler -Key 'Ctrl+"', "Ctrl+'" `
+    -BriefDescription SmartInsertQuote `
+    -LongDescription "Insert paired quotes if not already on a quote" `
+    -ScriptBlock {
     param($key, $arg)
 
     $quote = $key.KeyChar
@@ -379,8 +434,7 @@ Set-PSReadLineKeyHandler -Key 'Ctrl+"',"Ctrl+'" `
     [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
 
     # If text is selected, just quote it without any smarts
-    if ($selectionStart -ne -1)
-    {
+    if ($selectionStart -ne -1) {
         [Microsoft.PowerShell.PSConsoleReadLine]::Replace($selectionStart, $selectionLength, $quote + $line.SubString($selectionStart, $selectionLength) + $quote)
         [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($selectionStart + $selectionLength + 2)
         return
@@ -391,12 +445,10 @@ Set-PSReadLineKeyHandler -Key 'Ctrl+"',"Ctrl+'" `
     $parseErrors = $null
     [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$ast, [ref]$tokens, [ref]$parseErrors, [ref]$null)
 
-    function FindToken
-    {
+    function FindToken {
         param($tokens, $cursor)
 
-        foreach ($token in $tokens)
-        {
+        foreach ($token in $tokens) {
             if ($cursor -lt $token.Extent.StartOffset) { continue }
             if ($cursor -lt $token.Extent.EndOffset) {
                 $result = $token
@@ -432,7 +484,7 @@ Set-PSReadLineKeyHandler -Key 'Ctrl+"',"Ctrl+'" `
 
     if ($null -eq $token -or
         $token.Kind -eq [TokenKind]::RParen -or $token.Kind -eq [TokenKind]::RCurly -or $token.Kind -eq [TokenKind]::RBracket) {
-        if ($line[0..$cursor].Where{$_ -eq $quote}.Count % 2 -eq 1) {
+        if ($line[0..$cursor].Where{ $_ -eq $quote }.Count % 2 -eq 1) {
             # Odd number of quotes before the cursor, insert a single quote
             [Microsoft.PowerShell.PSConsoleReadLine]::Insert($quote)
         }
@@ -446,7 +498,7 @@ Set-PSReadLineKeyHandler -Key 'Ctrl+"',"Ctrl+'" `
 
     # If cursor is at the start of a token, enclose it in quotes.
     if ($token.Extent.StartOffset -eq $cursor) {
-        if ($token.Kind -eq [TokenKind]::Generic -or $token.Kind -eq [TokenKind]::Identifier -or
+        if ($token.Kind -eq [TokenKind]::Generic -or $token.Kind -eq [TokenKind]::Identifier -or 
             $token.Kind -eq [TokenKind]::Variable -or $token.TokenFlags.hasFlag([TokenFlags]::Keyword)) {
             $end = $token.Extent.EndOffset
             $len = $end - $cursor
@@ -461,9 +513,9 @@ Set-PSReadLineKeyHandler -Key 'Ctrl+"',"Ctrl+'" `
 }
 
 Set-PSReadLineKeyHandler -Key "Alt+'" `
-                        -BriefDescription ToggleQuoteArgument `
-                        -LongDescription "Toggle quotes on the argument under the cursor" `
-                        -ScriptBlock {
+    -BriefDescription ToggleQuoteArgument `
+    -LongDescription "Toggle quotes on the argument under the cursor" `
+    -ScriptBlock {
     param($key, $arg)
 
     $ast = $null
@@ -473,20 +525,16 @@ Set-PSReadLineKeyHandler -Key "Alt+'" `
     [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$ast, [ref]$tokens, [ref]$errors, [ref]$cursor)
 
     $tokenToChange = $null
-    foreach ($token in $tokens)
-    {
+    foreach ($token in $tokens) {
         $extent = $token.Extent
-        if ($extent.StartOffset -le $cursor -and $extent.EndOffset -ge $cursor)
-        {
+        if ($extent.StartOffset -le $cursor -and $extent.EndOffset -ge $cursor) {
             $tokenToChange = $token
 
             # If the cursor is at the end (it's really 1 past the end) of the previous token,
             # we only want to change the previous token if there is no token under the cursor
-            if ($extent.EndOffset -eq $cursor -and $foreach.MoveNext())
-            {
+            if ($extent.EndOffset -eq $cursor -and $foreach.MoveNext()) {
                 $nextToken = $foreach.Current
-                if ($nextToken.Extent.StartOffset -eq $cursor)
-                {
+                if ($nextToken.Extent.StartOffset -eq $cursor) {
                     $tokenToChange = $nextToken
                 }
             }
@@ -494,22 +542,18 @@ Set-PSReadLineKeyHandler -Key "Alt+'" `
         }
     }
 
-    if ($tokenToChange -ne $null)
-    {
+    if ($tokenToChange -ne $null) {
         $extent = $tokenToChange.Extent
         $tokenText = $extent.Text
-        if ($tokenText[0] -eq '"' -and $tokenText[-1] -eq '"')
-        {
+        if ($tokenText[0] -eq '"' -and $tokenText[-1] -eq '"') {
             # Switch to no quotes
             $replacement = $tokenText.Substring(1, $tokenText.Length - 2)
         }
-        elseif ($tokenText[0] -eq "'" -and $tokenText[-1] -eq "'")
-        {
+        elseif ($tokenText[0] -eq "'" -and $tokenText[-1] -eq "'") {
             # Switch to double quotes
             $replacement = '"' + $tokenText.Substring(1, $tokenText.Length - 2) + '"'
         }
-        else
-        {
+        else {
             # Add single quotes
             $replacement = "'" + $tokenText + "'"
         }
