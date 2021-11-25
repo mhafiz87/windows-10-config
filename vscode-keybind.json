@@ -36,11 +36,6 @@
         "key": "ctrl+pageup",
         "command": "gotoNextPreviousMember.previousMember"
     },
-    // Path Intellisense
-    {
-        "key": ".",
-        "command": ""
-    },
     {
         "key": "F2",
         "command": "toggle",
@@ -99,5 +94,17 @@
     {
         "key": "ctrl+k k",
         "command": "workbench.view.explorer"
+    },
+    {
+        "key": "ctrl+alt+=",
+        "command": "editor.action.fontZoomIn"
+    },
+    {
+        "key": "ctrl+alt+-",
+        "command": "editor.action.fontZoomOut"
+    },
+    {
+        "key": "ctrl+alt+backspace",
+        "command": "editor.action.fontZoomReset"
     }
 ]
