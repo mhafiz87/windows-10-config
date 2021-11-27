@@ -1,4 +1,5 @@
 code --install-extension vsciot-vscode.vscode-arduino;`
+code --install-extension adpyke.codesnap;`
 code --install-extension ronaldosena.arduino-snippets;`
 code --install-extension formulahendry.auto-rename-tag;`
 code --install-extension mark-wiemer.vscode-autohotkey-plus-plus;`
