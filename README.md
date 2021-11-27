@@ -40,10 +40,6 @@ Invoke-WebRequest -Uri "https://github.com/Sycnex/Windows10Debloater/archive/mas
   - Add **WORKON_HOME** in windows environment variables.
   - Using CMD:
 
-```cmd
-setx PATH "%PATH%;%USERPROFILE%\.virtualenvs"
-```
-
 ```powershell
 python -m pip install virtualenvwrapper-win
 mkvirtualenv -p python37 *venv_name*
