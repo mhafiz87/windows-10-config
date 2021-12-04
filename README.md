@@ -36,14 +36,6 @@ mkvirtualenv -p python37 *venv_name*
 
 ## TODO LIST
 
-- [x] ~~Change autohotkey silent installation arguments (INTERNAL branch)~~
-- [x] ~~Add Iruin Webcam install script in office.~~
-- [x] ~~Add vscode-settings.json~~
-- [x] ~~Rewrite autohotkey for angry ip scanner for both user and system~~
-- [x] ~~Rewrite autohotkey for ISOWorkshop for both user and system~~
-- [x] ~~Rewrite autohotkey for Iriun Webcam for both user and system~~
-- [ ] MingW ahk script need to be rewritten
-- [x] ~~Change if possible programming software installation path to localappdata.~~
 - [ ] Script to extract vscode extensions.
   - [ ] Test-Path exist or not.
 - [ ] Script to extract zeal docset.
