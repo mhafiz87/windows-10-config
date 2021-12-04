@@ -348,4 +348,4 @@ Write-Output "Downloading Windows 10 Debloater"
 Invoke-WebRequest -Uri "https://github.com/Sycnex/Windows10Debloater/archive/master.zip" -OutFile "$env:USERPROFILE\Desktop\Windows10Debloater.zip"
 # curl -L -o $env:USERPROFILE\Desktop\Windows10Debloater.zip https://github.com/Sycnex/Windows10Debloater/archive/master.zip
 
-Add-Env-Variable -envName "WORKON_HOME" -userType user -newEnv "$env:userprofile\.virtualenvs"
+Add-Env-Variable -envName "WORKON_HOME" -userType user -newEnv "$env:USERPROFILE\.virtualenvs"
