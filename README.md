@@ -13,23 +13,12 @@
     Invoke-WebRequest -Uri https://github.com/mhafiz87/windows-10-config/archive/master.zip -OutFile ~\Desktop\master.zip
     ```
 
-- Enable powershell to run script. Run powershell:
-
-```powershell
-Set-ExecutionPolicy -ExecutionPolicy ByPass -Scope CurrentUser -Force
-```
-
 - Go to the folder where the script is located.
+- Enable powershell to run script. Run `powershell_enable_script.bat`.
 - Run powershell:
 
 ```powershell
 .\windows-10-config.ps1
-```
-
-- Download and run Windows 10 debloater. Run powershell:
-
-```powershell
-Invoke-WebRequest -Uri "https://github.com/Sycnex/Windows10Debloater/archive/master.zip" -OutFile "$env:USERPROFILE\Desktop\Windows10Debloater.zip"
 ```
 
 ## **Python**
