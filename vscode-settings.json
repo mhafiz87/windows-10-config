@@ -16,6 +16,9 @@
     "code-runner.saveFileBeforeRun": true,
     "code-runner.showExecutionMessage": false,
     "editor.bracketPairColorization.enabled": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
     "editor.detectIndentation": true,
     "editor.fontFamily": "'FiraCode NF', 'Fira Code', 'Cascadia Code PL', Consolas, 'Courier New', monospace",
     "editor.fontLigatures": true,
@@ -23,7 +26,7 @@
     "editor.formatOnSave": true,
     "editor.insertSpaces": true,
     "editor.minimap.enabled": true,
-    "editor.lineNumbers": "relative",
+    "editor.lineNumbers": "on",
     "editor.linkedEditing": true,
     "editor.showFoldingControls": "always",
     "editor.suggestSelection": "first",
@@ -34,13 +37,13 @@
         "*.ino": "cpp"
     },
     "files.exclude": {
-        "**/.git": true,
+        "**/.git": false,
         "**/.svn": true,
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true
     },
-	"files.trimTrailingWhitespace": true,
+    "files.trimTrailingWhitespace": true,
     "gitlens.mode.active": "review",
     "gotoNextPreviousMember.symbolKinds": [
         "class",
@@ -72,6 +75,7 @@
     ],
     "python.showStartPage": false,
     "python.venvPath": "${env:USERPROFILE}/.virtualenvs",
+    "search.quickOpen.includeHistory": false,
     "sourcery.token": "user_AmrM0pIFJa6n4_3zbAYqBoPuiMkykg4GF_5likNB_eeUdUYLHEplQ8awMJQ",
     "telemetry.telemetryLevel": "off",
     "terminal.integrated.cwd": "${fileDirname}",
@@ -128,13 +132,14 @@
     "workbench.iconTheme": "vscode-icons",
     "workbench.list.horizontalScrolling": true,
     "workbench.startupEditor": "none",
-    "vim.leader": "<space>",
     "vim.easymotion": true,
-    "vim.surround": true,
-    "vim.incsearch": true,
-    "vim.useSystemClipboard": true,
-    "vim.useCtrlKeys": true,
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false,
+        "<C-w>": false
+    },
     "vim.hlsearch": true,
+    "vim.incsearch": true,
     "vim.insertModeKeyBindings": [
         {
             "before": [
@@ -146,6 +151,7 @@
             ]
         }
     ],
+    "vim.leader": "<space>",
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -179,6 +185,10 @@
             ]
         }
     ],
+    "vim.smartRelativeLine": true,
+    "vim.surround": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
     "vim.visualModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -193,11 +203,7 @@
             ]
         }
     ],
-    "vim.handleKeys": {
-        "<C-a>": false,
-        "<C-f>": false,
-        "<C-w>": false
-    },
     "vsicons.dontShowNewVersionMessage": true,
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "workbench.editor.enablePreview": true,
 }
