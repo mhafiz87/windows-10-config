@@ -51,4 +51,6 @@ code --install-extension vscode-icons-team.vscode-icons;`
 code --install-extension tomoki1207.vscode-input-sequence;`
 code --install-extension dunstontc.viml;`
 code --install-extension tyriar.windows-terminal;`
-code --install-extension bierner.markdown-mermaid
+code --install-extension bierner.markdown-mermaid;`
+code --install-extension hediet.vscode-drawio;`
+code --install-extension nopeslide.vscode-drawio-plugin-mermaid
