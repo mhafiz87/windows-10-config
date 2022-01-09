@@ -50,4 +50,5 @@ code --install-extension visualstudioexptteam.vscodeintellicode;`
 code --install-extension vscode-icons-team.vscode-icons;`
 code --install-extension tomoki1207.vscode-input-sequence;`
 code --install-extension dunstontc.viml;`
-code --install-extension tyriar.windows-terminal
+code --install-extension tyriar.windows-terminal;`
+code --install-extension bierner.markdown-mermaid
