@@ -19,13 +19,15 @@
     "editor.codeActionsOnSave": {
         "source.organizeImports": true
     },
-    "editor.detectIndentation": true,
+    "editor.detectIndentation": false,
     "editor.fontFamily": "'FiraCode NF', 'Fira Code', 'Cascadia Code PL', Consolas, 'Courier New', monospace",
     "editor.fontLigatures": true,
     "editor.fontSize": 12,
     "editor.formatOnSave": true,
+    "editor.guides.bracketPairs": "active",
+    "editor.guides.bracketPairsHorizontal": "active",
     "editor.insertSpaces": true,
-    "editor.minimap.enabled": true,
+    "editor.minimap.enabled": false,
     "editor.lineNumbers": "on",
     "editor.linkedEditing": true,
     "editor.showFoldingControls": "always",
@@ -37,7 +39,7 @@
         "*.ino": "cpp"
     },
     "files.exclude": {
-        "**/.git": false,
+        "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,
         "**/CVS": true,
@@ -54,6 +56,7 @@
     "jupyter.askForKernelRestart": false,
     "liveServer.settings.donotShowInfoMsg": true,
     "markdownlint.config": {
+        "MD033": false,
         "MD033": false
     },
     "notebook.cellToolbarLocation": {
@@ -63,7 +66,7 @@
     "prettier.tabWidth": 4,
     "python.languageServer": "Pylance",
     "python.formatting.blackArgs": [
-        "--line-length=120"
+        "--line-length=140"
     ],
     "python.formatting.blackPath": "${env:LOCALAPPDATA}/Programs/Python/Python39/Scripts/black.exe",
     "python.formatting.provider": "black",
@@ -73,7 +76,6 @@
     "python.linting.flake8Args": [
         "--ignore=E501,W503"
     ],
-    "python.showStartPage": false,
     "python.venvPath": "${env:USERPROFILE}/.virtualenvs",
     "search.quickOpen.includeHistory": false,
     "sourcery.token": "user_AmrM0pIFJa6n4_3zbAYqBoPuiMkykg4GF_5likNB_eeUdUYLHEplQ8awMJQ",
@@ -114,7 +116,8 @@
     "todohighlight.keywords": [
         {
             "isWholeLine": true,
-            "text": "TODO:"
+            "text": "TODO:",
+            "color": "black"
         },
         {
             "isWholeLine": true,
