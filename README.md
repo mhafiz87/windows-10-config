@@ -60,6 +60,15 @@
 - Copy these code and run it in powershell
 
     ```powershell
+    # Add new PSDrive
+    New-PSDrive -PSProvider registry -Root HKEY_CLASSES_ROOT -Name HKCR
+    New-PSDrive -PSProvider registry -Root HKEY_USERS -Name HKU
+    New-PSDrive -PSProvider registry -Root HKEY_CURRENT_CONFIG -Name HKCC
+
+    # Run batch file in Windows Terminal
+    write-output "Run Batch File In Windows Terminal"
+    Set-ItemProperty -path "hkcr:\batfile\shell\open\command" -name "(Default)" -Value "`"$env:localappdata\Microsoft\WindowsApps\wt.exe`" -p `"Command Prompt`" `"%1`" %*'"
+
     # change explorer home screen back to "this pc"
     write-output "change explorer home screen to this pc"
     set-itemproperty -path "hkcu:\software\microsoft\windows\currentversion\explorer\advanced" -name "launchto" -type dword -value 1
