@@ -57,7 +57,7 @@
 
 ### **Registry Edit Via CLI**
 
-- Copy these code and run it in powershell
+- Copy these code and run it in powershell in administrator mode.
 
     ```powershell
     # Add new PSDrive
