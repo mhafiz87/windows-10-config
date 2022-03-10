@@ -218,7 +218,7 @@
     git config --global user.name ""
     git config --global user.email ""
     git config --global core.editor "code"
-    git config --global alias.hist "log --graph --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+    git config --global alias.hist "log --oneline --graph --decorate --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
     ```
 
