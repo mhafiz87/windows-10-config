@@ -2,8 +2,6 @@
 
 ## TODO: List
 
-- [ ] Registry edit via CLI.
-
 ## **Check List**
 
 - [ ] Perform Windows Update
@@ -188,6 +186,12 @@
     ```powershell
     code $profile
 
+    ```
+
+- Install Terminal Icons
+
+    ```powershell
+    Install-Module -Name Terminal-Icons -Repository PSGallery
     ```
 
 ## **WSL 2 Setup**

@@ -9,6 +9,8 @@ Set-PSReadlineKeyHandler -Key Ctrl+Shift+Tab -Function TabCompletePrevious
 Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 
+Import-Module Terminal-Icons
+
 oh-my-posh --init --shell pwsh --config "~/omp_themes/powerlevel10k_rainbow.omp.json" | Invoke-Expression
 
 Function workon {
