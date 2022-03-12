@@ -181,7 +181,7 @@
     ```
 
 - Download Oh-My-Posh PowerLevel10k-rainbow theme from [here](https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/powerlevel10k_rainbow.omp.json) into `~/omp_themes/`.
-- Copy $profile from [here](Microsoft.PowerShell_profile.ps1) into $profile:
+- Copy $profile from [here](Microsoft.Powershell_profile.ps1) into $profile:
 
     ```powershell
     code $profile
