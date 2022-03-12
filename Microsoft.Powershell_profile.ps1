@@ -2,6 +2,13 @@ New-PSDrive -PSProvider registry -Root HKEY_CLASSES_ROOT -Name HKCR
 New-PSDrive -PSProvider registry -Root HKEY_USERS -Name HKU
 New-PSDrive -PSProvider registry -Root HKEY_CURRENT_CONFIG -Name HKCC
 
+Import-Module PSReadLine
+Set-PSReadLineOption -PredictionSource History
+Set-PSReadlineKeyHandler -Key Ctrl+Tab -Function TabCompleteNext
+Set-PSReadlineKeyHandler -Key Ctrl+Shift+Tab -Function TabCompletePrevious
+Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
+Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
+
 oh-my-posh --init --shell pwsh --config "~/omp_themes/powerlevel10k_rainbow.omp.json" | Invoke-Expression
 
 Function workon {
