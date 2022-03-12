@@ -17,7 +17,7 @@
   - [ ] Download and Install WSL 2
 - [ ] Install PowerShell 7
   - [ ] Install Oh-My-Posh
-  - [ ] [$profile](Microsoft.PowerShell_profile.ps1)
+  - [ ] [$profile](Microsoft.Powershell_profile.ps1)
 - [ ] Configure Windows Terminal
 - [ ] Git Setup
 - [ ] Pythons Setup
