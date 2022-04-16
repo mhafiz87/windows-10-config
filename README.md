@@ -272,6 +272,11 @@
     ```
 
 - Ensure `workon` function has been added in `PowerShell` profile.
+- To create virtual environment
+
+    ```powershell
+    python -m virtualenv $env:workon_home\<venv_name>
+    ```
 
 - virtualenvwrapper-powershell
 
