@@ -36,6 +36,51 @@ Function workon {
     & $env:WORKON_HOME\$envName\Scripts\activate.ps1
 }
 
+Function mkvirtualenv {
+    param(
+        [Parameter(Mandatory = $true)][string]$name
+    )
+    & python -m virtualenv $env:WORKON_HOME\$name
+}
+
+Function lsvirtualenv {
+    $children = Get-ChildItem $env:WORKON_HOME
+    Write-Host
+    Write-Host "`tPython Virtual Environments available"
+    Write-Host
+    Write-host ("`t{0,-30}{1,-15}" -f "Name", "Python version")
+    Write-host ("`t{0,-30}{1,-15}" -f "====", "==============")
+    Write-Host
+
+    if ($children.Length) {
+        $failed = [System.Collections.ArrayList]@()
+
+        for($i = 0; $i -lt $children.Length; $i++) {
+            $child = $children[$i]
+            try {
+                $PythonVersion = (((Invoke-Expression ("$env:WORKON_HOME\{0}\Scripts\Python.exe --version 2>&1" -f $child.name)) -replace "`r|`n","") -Split " ")[1]
+                Write-host ("`t{0,-30}{1,-15}" -f $child.name,$PythonVersion)
+            } catch {
+                $failed += $child
+            }
+        }
+    } else {
+        Write-Host "`tNo Python Environments"
+    }
+    if ($failed.Length -gt 0) {
+        Write-Host
+        Write-Host "`tAdditionally, one or more environments failed to be listed"
+        Write-Host "`t=========================================================="
+        Write-Host
+        foreach ($item in $failed) {
+            Write-Host "`t$item"
+        }
+    }
+
+
+    Write-Host
+}
+
 Function Add-Env-Variable {
     <#
         .SYNOPSIS
