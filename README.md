@@ -273,4 +273,11 @@
 
 - Ensure `workon` function has been added in `PowerShell` profile.
 
+- virtualenvwrapper-powershell
+
+    ```powershell
+    git clone https://github.com/regisf/virtualenvwrapper-powershell.git
+
+    ```
+
 ## **AutoHotKey Setup**
