@@ -268,6 +268,7 @@
 
     ```powershell
     [System.Environment]::SetEnvironmentVariable('WORKON_HOME',$env:USERPROFILE\Envs\,"User")
+    [System.Environment]::SetEnvironmentVariable('PYTHONPATH',$env:PYENV\shims\python,"User")
 
     ```
 
@@ -278,7 +279,7 @@
     python -m virtualenv $env:workon_home\<venv_name>
     ```
 
-- virtualenvwrapper-powershell
+- virtualenvwrapper-powershell. Clone using command below. In Find-Python function in C:\Users\Hafiz\Documents\PowerShell\Modules\VirtualEnvWrapper.psm1: if ($Python.EndsWith('python.exe')) -> if ($Python.EndsWith('python'))
 
     ```powershell
     git clone https://github.com/regisf/virtualenvwrapper-powershell.git
