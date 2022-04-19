@@ -17,3 +17,4 @@ winget install -e --id Logitech.Options
 winget install -e --id Git.Git
 winget install -e --id Microsoft.VC++2015-2022Redist-x64
 winget install -e --id Notepad++.Notepad++
+winget install -e --id Valve.Steam
