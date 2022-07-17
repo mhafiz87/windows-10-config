@@ -21,9 +21,32 @@
 .\windows-10-config.ps1
 ```
 
+## **Windows Terminal**
+
 ## **Python**
 
-### **Multiple versions**
+### **Multiple Python Versions using pyenv**
+
+- Reference [here](https://github.com/pyenv-win/pyenv-win).
+- Installing using powershell
+
+```powershell
+Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/pyenv-win/pyenv-win/master/pyenv-win/install-pyenv-win.ps1" -OutFile "./install-pyenv-win.ps1"; &"./install-pyenv-win.ps1"
+```
+
+- If you are getting any **UnauthorizedAccess** error as below then start **Windows PowerShell with the "Run as administrator"** option and run:
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
+```
+
+- To find which python version to install, replace **3.8** with version that you need.
+
+```powershell
+pyenv install -l | findstr 3.8
+```
+
+### **Virtual Environment**
 
 - Virtual Environment
   - Add **WORKON_HOME** in windows environment variables.
