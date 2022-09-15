@@ -230,6 +230,19 @@
 
 - References [here](https://github.com/pyenv-win/pyenv-win#get-pyenv-win)
 - Install pyenv-win from [here](https://github.com/pyenv-win/pyenv-win/archive/master.zip)
+
+    ```powershell
+    $Url = "https://github.com/pyenv-win/pyenv-win/archive/master.zip"
+    $DownloadZipFile = "$env:USERPROFILE\" + $(Split-Path -Path $Url -Leaf)
+    Invoke-WebRequest -URI $Url -OutFile $DownloadZipFile
+    $ExtractPath = "$env:USERPROFILE\.pyenv2\"
+    $ExtractShell = New-Object -ComObject Shell.Application
+    $ExtractFiles = $ExtractShell.Namespace($DownloadZipFile).Items()
+    Expand-Archive -LiteralPath $DownloadZipFile -DestinationPath "$env:USERPROFILE\"
+    Rename-Item "$env:USERPROFILE\pyenv-win-master" "$env:USERPROFILE\.pyenv"
+    Remove-Item -Path $DownloadZipFile
+    ```
+
 - Extract downloaded file to %userprofile%
 - Ensure there is a bin folder under %USERPROFILE%\.pyenv\pyenv-win
 - Update user environment variables:
