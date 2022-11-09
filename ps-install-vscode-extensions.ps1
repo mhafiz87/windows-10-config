@@ -24,6 +24,7 @@ code --install-extension ritwickdey.liveserver;`
 code --install-extension yzhang.markdown-all-in-one;`
 code --install-extension davidanson.vscode-markdownlint;`
 code --install-extension asbjornh.vscode-module-templates;`
+code --install-extension sandcastle.vscode-open;`
 code --install-extension techer.open-in-browser;`
 code --install-extension gsgupta.opencv-snippets;`
 code --install-extension christian-kohler.path-intellisense;`
