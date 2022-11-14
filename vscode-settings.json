@@ -19,6 +19,7 @@
     "editor.codeActionsOnSave": {
         "source.organizeImports": true
     },
+    "editor.cursorSurroundingLines": 10,
     "editor.detectIndentation": false,
     "editor.fontFamily": "'FiraCode NF', 'Fira Code', 'Cascadia Code PL', Consolas, 'Courier New', monospace",
     "editor.fontLigatures": true,
