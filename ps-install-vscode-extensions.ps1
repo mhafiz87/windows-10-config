@@ -14,6 +14,7 @@ code --install-extension mhutchie.git-graph;`
 code --install-extension codezombiech.gitignore;`
 code --install-extension eamodio.gitlens;`
 code --install-extension mishkinf.goto-next-previous-member;`
+code --install-extension albymor.increment-selection;`
 code --install-extension ecmel.vscode-html-css;`
 code --install-extension oderwat.indent-rainbow;`
 code --install-extension ms-toolsai.jupyter;`
@@ -23,6 +24,7 @@ code --install-extension ritwickdey.liveserver;`
 code --install-extension yzhang.markdown-all-in-one;`
 code --install-extension davidanson.vscode-markdownlint;`
 code --install-extension asbjornh.vscode-module-templates;`
+code --install-extension sandcastle.vscode-open;`
 code --install-extension techer.open-in-browser;`
 code --install-extension gsgupta.opencv-snippets;`
 code --install-extension christian-kohler.path-intellisense;`
