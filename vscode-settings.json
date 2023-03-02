@@ -105,7 +105,7 @@
             "isWholeLine": true,
             "text": "HACK:",
             "color": "black",
-            "backgroundColor": "#ba4be7"
+            "backgroundColor": "#ff99ff"
         },
     ],
     "window.autoDetectColorScheme": true,
