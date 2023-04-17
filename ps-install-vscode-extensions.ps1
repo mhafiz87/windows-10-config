@@ -3,7 +3,7 @@ code --install-extension adpyke.codesnap;`
 code --install-extension ronaldosena.arduino-snippets;`
 code --install-extension formulahendry.auto-rename-tag;`
 code --install-extension mark-wiemer.vscode-autohotkey-plus-plus;`
-code --install-extension alefragnani.bookmarks;`
+code --install-extension alefragnani.numbered-bookmarks;`
 code --install-extension ms-vscode.cpptools;`
 code --install-extension formulahendry.code-runner;`
 code --install-extension anseki.vscode-color;`
