@@ -280,7 +280,7 @@
 - Add `WORKON_HOME` variable to user environment.
 
     ```powershell
-    [System.Environment]::SetEnvironmentVariable('WORKON_HOME',$env:USERPROFILE + "\Envs\","User")
+    [System.Environment]::SetEnvironmentVariable('WORKON_HOME',$env:USERPROFILE + "\Envs","User")
     [System.Environment]::SetEnvironmentVariable('PYTHONPATH',$env:PYENV + "shims\python","User")
 
     ```
