@@ -44,14 +44,10 @@
             "id": "darklight",
             "value": [
                 {
-                    // "workbench.colorTheme": "Gruvbox Material Dark"
-                    "workbench.colorTheme": "Default Dark+"
-                    // "workbench.colorTheme": "Monokai ST3"
+                    "workbench.colorTheme": "Default Dark Modern"
                 },
                 {
-                    // "workbench.colorTheme": "Gruvbox Material Light"
-                    "workbench.colorTheme": "Default Light+"
-                    // "workbench.colorTheme": "Default Light+"
+                    "workbench.colorTheme": "Default Light Modern"
                 }
             ]
         }
@@ -106,5 +102,25 @@
     {
         "key": "ctrl+alt+backspace",
         "command": "editor.action.fontZoomReset"
+    },
+    {
+        "key": "shift+alt+p",
+        "command": "workbench.action.navigateBack",
+        "when": "canNavigateBack"
+    },
+    {
+        "key": "alt+left",
+        "command": "-workbench.action.navigateBack",
+        "when": "canNavigateBack"
+    },
+    {
+        "key": "shift+alt+n",
+        "command": "workbench.action.navigateForward",
+        "when": "canNavigateForward"
+    },
+    {
+        "key": "alt+right",
+        "command": "-workbench.action.navigateForward",
+        "when": "canNavigateForward"
     }
 ]
