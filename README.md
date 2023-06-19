@@ -194,6 +194,12 @@
     Install-Module -Name Terminal-Icons -Repository PSGallery
     ```
 
+- Install PSReadLine
+
+    ```powershell
+    Install-Module -Name PSReadLine -AllowPrerelease -Scope CurrentUser -Force -SkipPublisherCheck
+    ```
+
 ## **WSL 2 Setup**
 
 - Install WSL and enable windows features.
