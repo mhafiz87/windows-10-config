@@ -1,7 +1,36 @@
 {
+    "[python]": {
+        "editor.rulers": [
+            {
+                "column": 80,
+                "color": "#c3c30090"
+            },
+            {
+                "column": 120,
+                "color": "#c4000090"
+            }
+        ],
+        "explicitFolding.rules": [
+            {
+                "beginRegex": "\"\"\"|'''",
+                "endRegex": "\"\"\"|'''",
+                "autoFold": true
+            },
+            {
+                "indentation": true,
+                "offSide": true
+            }
+        ],
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
     "autoDocstring.docstringFormat": "google",
     "autoDocstring.startOnNewLine": false,
-    "autoDocstring.customTemplatePath": "C:\\Users\\5004124381\\.vscode\\orbital_docstring.mustache",
+    "autoDocstring.customTemplatePath": "C:\\Users\\*username*\\.vscode\\orbital_docstring.mustache",
     "code-runner.clearPreviousOutput": true,
     "code-runner.executorMap": {
         "python": "$pythonPath -u $fullFileName"
@@ -9,15 +38,19 @@
     "code-runner.runInTerminal": true,
     "code-runner.saveFileBeforeRun": true,
     "code-runner.showExecutionMessage": false,
+    "diffEditor.ignoreTrimWhitespace": false,
     "editor.cursorSurroundingLines": 10,
+    "editor.defaultFoldingRangeProvider": "zokugun.explicit-folding",
     "editor.detectIndentation": true,
     "editor.foldingImportsByDefault": false,
+    "editor.foldingStrategy": "auto",
     "editor.fontFamily": "'FiraCode NF', 'Fira Code', 'Cascadia Code PL', Consolas, 'Courier New', monospace",
     "editor.fontLigatures": true,
-    "editor.fontSize": 10,
-    "editor.formatOnSave": true,
+    "editor.fontSize": 9,
+    "editor.formatOnSave": false,
     "editor.insertSpaces": true,
     "editor.minimap.enabled": false,
+    "editor.multiCursorPaste": "full",
     "editor.lineNumbers": "relative",
     "editor.linkedEditing": true,
     "editor.showFoldingControls": "always",
@@ -28,7 +61,6 @@
     "files.associations": {
         "*.ino": "cpp"
     },
-    "files.maxMemoryForLargeFilesMB": 49152,
     "files.exclude": {
         "**/.git": false,
         "**/.svn": true,
@@ -41,22 +73,46 @@
         "function",
         "method",
     ],
-    "liveServer.settings.donotShowInfoMsg": true,
+    "jupyter.interactiveWindow.creationMode": "perFile",
     "markdownlint.config": {
         "MD033": false
     },
-    "prettier.tabWidth": 4,
+    "module-templates.engine": "handlebars",
+    "module-templates.templateFiles": [
+        "C:\\Users\\*username*\\.vscode\\template_test_script_basic.json",
+        "C:\\Users\\*username*\\.vscode\\template_test_script_expert.json",
+        "C:\\Users\\*username*\\.vscode\\template_test_script_intermediate.json",
+        "C:\\Users\\*username*\\.vscode\\template_test_script_hafiz.json"
+    ],
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "python.analysis.diagnosticMode": "openFilesOnly",
     "python.languageServer": "Pylance",
     "python.formatting.blackArgs": [
-        "--line-length=120"
+        "--line-length=79"
     ],
-    "python.formatting.blackPath": "${env:LOCALAPPDATA}/Programs/Python/Python39/Scripts/black.exe",
-    "python.formatting.provider": "none",
-    "python.linting.flake8Path": "${env:LOCALAPPDATA}/Programs/Python/Python39/Scripts/flake8.exe",
+    "python.formatting.autopep8Args": [
+        "--max-line-length",
+        "79",
+        "--experimental"
+    ],
+    "python.formatting.autopep8Path": "C:\\Users\\*username*\\.pyenv\\pyenv-win\\versions\\3.11.4\\Scripts\\autopep8.exe",
+    "python.formatting.blackPath": "C:\\Users\\*username*\\.pyenv\\pyenv-win\\versions\\3.11.4\\Scripts\\black.exe",
+    "python.formatting.provider": "black",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": false,
+    "python.linting.flake8Path": "C:\\Users\\*username*\\.pyenv\\pyenv-win\\versions\\3.11.4\\Scripts\\flake8.exe",
     "python.linting.flake8Args": [
         "--ignore=E501"
     ],
     "python.venvPath": "~/.virtualenvs",
+    "ruff.args": [
+        "--ignore=501"
+    ],
+    "search.quickOpen.includeHistory": false,
+    "sourcery.token": "user_AmrM0pIFJa6n4_3zbAYqBoPuiMkykg4GF_5likNB_eeUdUYLHEplQ8awMJQ",
     "telemetry.telemetryLevel": "off",
     "terminal.integrated.cwd": "${fileDirname}",
     "terminal.integrated.fontFamily": "'FiraCode NF','Cascadia Code', Consolas, 'Courier New', monospace",
@@ -105,11 +161,10 @@
             "isWholeLine": true,
             "text": "HACK:",
             "color": "black",
-            "backgroundColor": "#ff99ff"
+            "backgroundColor": "#FF99FF"
         },
     ],
     "window.autoDetectColorScheme": true,
-    "workbench.colorTheme": "Default Dark+",
     "workbench.editor.pinnedTabSizing": "compact",
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook"
@@ -117,14 +172,6 @@
     "workbench.iconTheme": "vscode-icons",
     "workbench.list.horizontalScrolling": true,
     "workbench.startupEditor": "none",
-    "[markdown]": {
-        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
-    },
-    "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "jupyter.interactiveWindowMode": "perFile",
-    "jupyter.askForKernelRestart": false,
     "vim.leader": "<space>",
     "vim.easymotion": true,
     "vim.surround": true,
@@ -195,21 +242,8 @@
         "<C-f>": false,
         "<C-w>": false
     },
-    "notebook.cellToolbarLocation": {
-        "default": "right",
-        "jupyter-notebook": "left"
-    },
-    "workbench.editor.enablePreview": false,
-    "sourcery.token": "user_AmrM0pIFJa6n4_3zbAYqBoPuiMkykg4GF_5likNB_eeUdUYLHEplQ8awMJQ",
-    "module-templates.engine": "handlebars",
-    "module-templates.templateFiles": [
-        "C:\\Users\\5004124381\\.vscode\\template_test_script_basic.json",
-        "C:\\Users\\5004124381\\.vscode\\template_test_script_expert.json",
-        "C:\\Users\\5004124381\\.vscode\\template_test_script_intermediate.json"
-    ],
-    "vsicons.dontShowNewVersionMessage": true,
-    "bracket-pair-colorizer-2.depreciation-notice": false,
-    "search.quickOpen.includeHistory": false,
     "vim.smartRelativeLine": false,
-    "diffEditor.ignoreTrimWhitespace": false,
+    "vsicons.dontShowNewVersionMessage": true,
+    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.editor.enablePreview": false,
 }
